@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maira Younus | Web Developer</title>
+  <meta name="description" content="Portfolio of Maira Younus, a web developer building clean, creative web experiences.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+ 
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="navbar" aria-label="Main navigation">
+      <a href="#" class="logo">MY<span class="logo-dot">.</span></a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO (WITH AI BG) -->
+    <section class="hero" id="home">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <p class="eyebrow">
+            <span class="status-dot"></span> Web Development Intern
+          </p>
+          <h1 class="hero-title">Hi, I'm <span class="highlight"><span id="typewriter"></span><span class="cursor">&nbsp;</span></span>.<br>I build things for the web.</h1>
+          <p class="hero-subtitle">Currently learning and shipping something new every single day &mdash; from HTML basics to responsive, real-world interfaces.</p>
+          <div class="hero-actions">
+            <a href="https://www.linkedin.com/in/maira-younus-544a1438a" target="_blank" rel="noopener noreferrer" class="btn btn-primary">See my work</a>
+            <a href="#contact" class="btn btn-glass">Get in touch</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about reveal" id="about">
+      <div class="section-inner">
+        <p class="eyebrow">About</p>
+        <h2 class="section-title">A little about me</h2>
+        <div class="about-grid">
+          <div class="about-text">
+            <p>I'm a web development intern learning by building in public &mdash; one commit, one section, one skill at a time. This site itself is part of that journey: every day adds a new piece, from structure to style to responsiveness.</p>
+            <p>I care about clean code, thoughtful design, and interfaces that feel good to use. Outside of coding, I enjoy exploring new tech and creating digital experiences.</p>
+            <div class="stats-row">
+              <div class="stat-item">
+                <h4>10+</h4>
+                <p>Projects Built</p>
+              </div>
+              <div class="stat-item">
+                <h4>20+</h4>
+                <p>Technologies</p>
+              </div>
+              <div class="stat-item">
+                <h4>100%</h4>
+                <p>Commitment</p>
+              </div>
+            </div>
+          </div>
+          <div class="about-card tilt-card">
+            <ul class="about-facts">
+              <li><strong>Based in</strong><span>Hyderabad, Pakistan</span></li>
+              <li><strong>Focus</strong><span>Frontend &amp; UI</span></li>
+              <li><strong>Currently</strong><span>Web Dev Internship</span></li>
+              <li><strong>Open to</strong><span>Internships &amp; collabs</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="skills reveal" id="skills">
+      <div class="section-inner">
+        <p class="eyebrow">Skills</p>
+        <h2 class="section-title">What I work with</h2>
+        <div class="skills-grid">
+
+          <div class="skill-card tilt-card">
+            <span class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 6 2 12 8 18"/><polyline points="16 6 22 12 16 18"/></svg>
+            </span>
+            <h3>HTML5</h3>
+            <p>Semantic, accessible markup</p>
+          </div>
+
+          <div class="skill-card tilt-card">
+            <span class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C7 2 3 6 3 11c0 2.8 1.8 4.5 4.2 4.5h.8a1.8 1.8 0 0 1 1.8 1.8c0 1.5 1.3 2.7 3 2.7 5 0 8.2-4 8.2-9C21 6.4 17 2 12 2z"/><circle cx="7.5" cy="10.5" r="1"/><circle cx="10.5" cy="7" r="1"/><circle cx="14.5" cy="7" r="1"/><circle cx="17" cy="10.5" r="1"/></svg>
+            </span>
+            <h3>CSS3</h3>
+            <p>Flexbox, Grid, responsive layouts</p>
+          </div>
+
+          <div class="skill-card tilt-card">
+            <span class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg>
+            </span>
+            <h3>JavaScript</h3>
+            <p>Interactive, dynamic UI</p>
+          </div>
+
+          <div class="skill-card tilt-card">
+            <span class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.2"/><circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="9" r="2.2"/><path d="M6 8.2V18"/><path d="M6 12c0-3.2 2.8-3 6-3h3.8"/></svg>
+            </span>
+            <h3>Git &amp; GitHub</h3>
+            <p>Version control &amp; collaboration</p>
+          </div>
+
+          <div class="skill-card tilt-card">
+            <span class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.7.6 1 1.3 1 2.3h6c0-1 .3-1.7 1-2.3A7 7 0 0 0 12 2z"/></svg>
+            </span>
+            <h3>Problem Solving</h3>
+            <p>Debugging &amp; logical thinking</p>
+          </div>
+
+          <div class="skill-card tilt-card">
+            <span class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M2.5 21c0-3.6 2.5-6.2 5.5-6.2s5.5 2.6 5.5 6.2"/><path d="M14.8 15.2c2.3.5 4.2 2.5 4.2 5.8"/></svg>
+            </span>
+            <h3>Teamwork</h3>
+            <p>Communication &amp; collaboration</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="education reveal" id="education">
+      <div class="section-inner">
+        <p class="eyebrow">Education</p>
+        <h2 class="section-title">Where I've studied</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content tilt-card">
+              <h3>University of Sindh</h3>
+              <p class="timeline-meta">Bachelors &middot; 2019 &ndash; 2022</p>
+              <p>Completed my degree with a focus on computer science and software development fundamentals, building a strong foundation in programming and logical problem solving.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content tilt-card">
+              <h3>Software Development Internship</h3>
+              <p class="timeline-meta">Tech Innovators Inc. &middot; 2026</p>
+              <p>Hands-on training in HTML, CSS, JavaScript, Git and responsive design &mdash; building and shipping daily real-world applications for clients.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS (SIMPLIFIED CARDS) -->
+    <section class="projects reveal" id="projects">
+      <div class="section-inner">
+        <p class="eyebrow">Projects</p>
+        <h2 class="section-title">Things I've built</h2>
+        <div class="projects-grid">
+
+          <!-- Project 1: Nexus Security -->
+          <article class="project-card tilt-card">
+            <a href="https://nexus-security-one.vercel.app" target="_blank" rel="noopener noreferrer" class="project-header">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <div class="mock-overlay">View Project &rarr;</div>
+            </a>
+            <div class="project-body">
+              <h3>Nexus Security</h3>
+              <p>A modern web security application designed to protect user credentials and manage safe access across platforms. Built with a focus on clean UI and robust JavaScript logic.</p>
+              <div class="tag-list">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+              </div>
+              <div class="project-links">
+                <a href="https://nexus-security-one.vercel.app" target="_blank" rel="noopener noreferrer" class="project-link">Live Demo &rarr;</a>
+                <a href="https://github.com/Mairayounus" target="_blank" rel="noopener noreferrer" class="project-link">GitHub &rarr;</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2: Rival Project -->
+          <article class="project-card tilt-card">
+            <a href="https://mairayounus.github.io/Rival-project/" target="_blank" rel="noopener noreferrer" class="project-header">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+              <div class="mock-overlay">View Project &rarr;</div>
+            </a>
+            <div class="project-body">
+              <h3>Rival Project</h3>
+              <p>A centralized dashboard built to monitor security logs and manage user roles. Features real-time data updates and responsive interactive charts.</p>
+              <div class="tag-list">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">REST API</span>
+              </div>
+              <div class="project-links">
+                <a href="https://mairayounus.github.io/Rival-project/" target="_blank" rel="noopener noreferrer" class="project-link">Live Demo &rarr;</a>
+                <a href="https://github.com/Mairayounus" target="_blank" rel="noopener noreferrer" class="project-link">GitHub &rarr;</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3: Coming Soon -->
+          <article class="project-card tilt-card project-card-soon">
+            <div class="project-header" style="cursor: default;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+            </div>
+            <div class="project-body">
+              <h3>More coming soon</h3>
+              <p>New projects are added as the internship progresses &mdash; check back soon!</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact reveal" id="contact">
+      <div class="section-inner">
+        <p class="eyebrow">Contact</p>
+        <h2 class="section-title">Let's work together</h2>
+        <div class="contact-grid">
+          <div class="contact-info">
+            <p>Have a project in mind, or just want to say hi? My inbox is open.</p>
+            <ul class="contact-list">
+              <li>
+                <span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></span>
+                <a href="mailto:your.email@example.com">your.email@example.com</a>
+              </li>
+              <li>
+                <span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="1.6"/><path d="M10 9v12M10 13c0-2.2 2-4 4.5-4S19 10.8 19 13v8"/></svg></span>
+                <a href="https://www.linkedin.com/in/maira-younus-544a1438a" target="_blank" rel="noopener">linkedin.com/in/maira-younus</a>
+              </li>
+              <li>
+                <span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.6 2.8 5.5 3.1 5.5 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4.1 9.5c0 4.6 2.7 5.7 5.5 6-.4.4-.4.9-.5 1.5V21"/></svg></span>
+                <a href="https://github.com/Mairayounus" target="_blank" rel="noopener">github.com/Mairayounus</a>
+              </li>
+            </ul>
+          </div>
+          <form class="contact-form tilt-card" id="contactForm" novalidate>
+            <div class="form-row">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-row">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required>
+            </div>
+            <div class="form-row">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="4" placeholder="Tell me about your project..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+            <p class="form-status" id="formStatus" role="status"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- SCROLL TO TOP -->
+  <div class="scroll-top" id="scrollTop" title="Scroll to Top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </div>
+
+  <footer class="site-footer">
+    <div class="section-inner footer-inner">
+      <p>&copy; <span id="year"></span> <span class="highlight">Maira Younus</span>. Built with HTML &amp; CSS during my web dev internship.</p>
+      <ul class="footer-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <div class="footer-social">
+          <a href="https://github.com/Mairayounus" target="_blank" rel="noopener" title="GitHub">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.6 2.8 5.5 3.1 5.5 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4.1 9.5c0 4.6 2.7 5.7 5.5 6-.4.4-.4.9-.5 1.5V21"/></svg>
+          </a>
+          <a href="mailto:your.email@example.com" title="Email">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+          </a>
+        </div>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    navToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      navToggle.classList.toggle('active');
+      navToggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Contact form
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      formStatus.textContent = "Thanks for reaching out! I'll get back to you soon.";
+      contactForm.reset();
+    });
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Scroll-reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      revealEls.forEach(el => revealObserver.observe(el));
+    } else {
+      revealEls.forEach(el => el.classList.add('is-visible'));
+    }
+
+    // Typewriter
+    const typewriterElement = document.getElementById('typewriter');
+    const nameText = "Maira Younus";
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typeWriter() {
+      if (!isDeleting && charIndex < nameText.length) {
+        typewriterElement.textContent += nameText.charAt(charIndex);
+        charIndex++;
+        setTimeout(typeWriter, 120);
+      } else if (isDeleting && charIndex > 0) {
+        typewriterElement.textContent = nameText.substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(typeWriter, 60);
+      } else {
+        if (!isDeleting) {
+          isDeleting = true;
+          setTimeout(typeWriter, 2000);
+        } else {
+          isDeleting = false;
+          setTimeout(typeWriter, 500);
+        }
+      }
+    }
+    setTimeout(typeWriter, 800);
+
+    // 3D Tilt & Spotlight Effect for Cards
+    const tiltCards = document.querySelectorAll('.tilt-card');
+    
+    tiltCards.forEach(card => {
+      if (window.matchMedia('(hover: none)').matches) return;
+
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * -5; 
+        const rotateY = ((x - centerX) / centerX) * 5;
+        
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.01, 1.01, 1.01)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+      });
+    });
+
+    // Scroll to Top Button
+    const scrollTopBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        scrollTopBtn.classList.add('visible');
+      } else {
+        scrollTopBtn.classList.remove('visible');
+      }
+    });
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
