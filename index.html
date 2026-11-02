@@ -1,235 +1,936 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maira Younus | Web Developer</title>
-  <meta name="description" content="Portfolio of Maira Younus, a web developer building clean, creative web experiences.">
+  <title>Maira Younus | Full Stack Developer</title>
+  <meta name="description"
+    content="Portfolio of Maira Younus - Full Stack Developer specializing in HTML5, CSS3, JavaScript, Node.js, Express, and modern web applications.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
- 
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
+  <!-- Tech Grid Background -->
+  <div class="tech-grid-bg"></div>
 
   <a class="skip-link" href="#main">Skip to content</a>
 
+  <!-- SITE HEADER / NAVBAR -->
   <header class="site-header">
     <nav class="navbar" aria-label="Main navigation">
-      <a href="#" class="logo">MY<span class="logo-dot">.</span></a>
+      <a href="#home" class="logo">
+        MY<span class="logo-dot">.</span>
+        <span class="logo-tag">DEV</span>
+      </a>
 
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
 
       <ul class="nav-links" id="navLinks">
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
-        <li><a href="#education">Education</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact" class="nav-cta">Contact</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li>
+          <a href="resume.html" target="_blank" class="nav-resume-btn" id="navResumeBtn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+              <polyline points="14 2 14 8 20 8" />
+              <line x1="16" y1="13" x2="8" y2="13" />
+              <line x1="16" y1="17" x2="8" y2="17" />
+            </svg>
+            Resume
+          </a>
+        </li>
       </ul>
     </nav>
   </header>
 
   <main id="main">
 
-    <!-- HERO (WITH AI BG) -->
+    <!-- HERO SECTION -->
     <section class="hero" id="home">
       <div class="hero-inner">
         <div class="hero-content">
           <p class="eyebrow">
-            <span class="status-dot"></span> Web Development Intern
+            <span class="status-dot"></span> Available for Full Stack &amp; Frontend Roles
           </p>
-          <h1 class="hero-title">Hi, I'm <span class="highlight"><span id="typewriter"></span><span class="cursor">&nbsp;</span></span>.<br>I build things for the web.</h1>
-          <p class="hero-subtitle">Currently learning and shipping something new every single day &mdash; from HTML basics to responsive, real-world interfaces.</p>
+
+          <h1 class="hero-title">
+            Hi, I'm <span class="highlight">Maira Younus</span>.<br>
+            <span id="typewriter"></span><span class="cursor">&nbsp;</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            Full Stack Developer skilled in building complete web applications &mdash; from responsive frontend
+            interfaces in HTML5, CSS3, and modern JavaScript to robust backend REST APIs with Node.js, Express, and
+            database management.
+          </p>
+
+          <!-- First Page Hero Two Buttons -->
           <div class="hero-actions">
-            <a href="https://www.linkedin.com/in/maira-younus-544a1438a" target="_blank" rel="noopener noreferrer" class="btn btn-primary">See my work</a>
-            <a href="#contact" class="btn btn-glass">Get in touch</a>
+            <!-- Button 1: Resume (as requested) -->
+            <a href="resume.html" target="_blank" class="btn btn-primary" id="heroResumeBtn"
+              title="View & Download Maira Younus CV">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" y1="13" x2="8" y2="13" />
+                <line x1="16" y1="17" x2="8" y2="17" />
+              </svg>
+              Resume
+            </a>
+
+            <!-- Button 2: Live Projects -->
+            <a href="#projects" class="btn btn-glass">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="5 3 19 12 5 21 5 3" />
+              </svg>
+              View Live Projects
+            </a>
+          </div>
+
+          <!-- Quick Tech Badges -->
+          <div class="tech-ticker">
+            <span class="ticker-pill">HTML5</span>
+            <span class="ticker-pill">CSS3</span>
+            <span class="ticker-pill">JavaScript ES6+</span>
+            <span class="ticker-pill">Node.js</span>
+            <span class="ticker-pill">Express.js</span>
+            <span class="ticker-pill">REST APIs</span>
+            <span class="ticker-pill">Git &amp; GitHub</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ABOUT -->
+    <!-- ABOUT SECTION -->
     <section class="about reveal" id="about">
       <div class="section-inner">
         <p class="eyebrow">About</p>
-        <h2 class="section-title">A little about me</h2>
+        <h2 class="section-title">Professional Summary</h2>
         <div class="about-grid">
           <div class="about-text">
-            <p>I'm a web development intern learning by building in public &mdash; one commit, one section, one skill at a time. This site itself is part of that journey: every day adds a new piece, from structure to style to responsiveness.</p>
-            <p>I care about clean code, thoughtful design, and interfaces that feel good to use. Outside of coding, I enjoy exploring new tech and creating digital experiences.</p>
+            <p>
+              Full Stack Developer skilled in building complete web applications, from responsive frontend interfaces in
+              <strong>HTML5, CSS3, and JavaScript</strong> to backend APIs and databases with <strong>Node.js,
+                Express.js, and MongoDB/SQL</strong>.
+            </p>
+            <p>
+              Completed <strong>five remote web development internships</strong> and built API-driven projects including
+              authentication and CRUD functionality. Seeking a Full Stack Developer role where I can contribute clean,
+              maintainable code and grow with a development team.
+            </p>
             <div class="stats-row">
               <div class="stat-item">
-                <h4>10+</h4>
-                <p>Projects Built</p>
+                <h4>8+</h4>
+                <p>Live Projects</p>
               </div>
               <div class="stat-item">
-                <h4>20+</h4>
-                <p>Technologies</p>
+                <h4>5</h4>
+                <p>Internships</p>
               </div>
               <div class="stat-item">
                 <h4>100%</h4>
-                <p>Commitment</p>
+                <p>Dedication</p>
               </div>
             </div>
           </div>
           <div class="about-card tilt-card">
             <ul class="about-facts">
+              <li><strong>Role</strong><span>Full Stack Developer</span></li>
               <li><strong>Based in</strong><span>Hyderabad, Pakistan</span></li>
-              <li><strong>Focus</strong><span>Frontend &amp; UI</span></li>
-              <li><strong>Currently</strong><span>Web Dev Internship</span></li>
-              <li><strong>Open to</strong><span>Internships &amp; collabs</span></li>
+              <li><strong>Contact</strong><span>03144351035</span></li>
+              <li><strong>Email</strong><span>mairayounus90@gmail.com</span></li>
+              <li><strong>Education</strong><span>B.Sc. (University of Sindh)</span></li>
+              <li><strong>Certificate</strong><span>Mehran University</span></li>
+              <li><strong>Status</strong><span style="color:var(--primary); font-weight:600;">Open to Work</span></li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SKILLS -->
+    <!-- SKILLS SECTION -->
     <section class="skills reveal" id="skills">
       <div class="section-inner">
-        <p class="eyebrow">Skills</p>
+        <p class="eyebrow">Technical Expertise</p>
         <h2 class="section-title">What I work with</h2>
+
         <div class="skills-grid">
 
-          <div class="skill-card tilt-card">
-            <span class="skill-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 6 2 12 8 18"/><polyline points="16 6 22 12 16 18"/></svg>
-            </span>
-            <h3>HTML5</h3>
-            <p>Semantic, accessible markup</p>
+          <!-- Category 1: Frontend -->
+          <div class="skill-category tilt-card">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="16 18 22 12 16 6" />
+                  <polyline points="8 6 2 12 8 18" />
+                </svg>
+              </div>
+              <div>
+                <h3>Frontend Mastery</h3>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">User Interfaces &amp; Interactivity</span>
+              </div>
+            </div>
+            <div class="skill-pills-wrap">
+              <span class="skill-tag">HTML5 Semantic</span>
+              <span class="skill-tag">CSS3 / Flex &amp; Grid</span>
+              <span class="skill-tag">JavaScript (ES6+)</span>
+              <span class="skill-tag">DOM Manipulation</span>
+              <span class="skill-tag">Responsive Design</span>
+              <span class="skill-tag">Bootstrap 5</span>
+              <span class="skill-tag">Tailwind CSS</span>
+            </div>
           </div>
 
-          <div class="skill-card tilt-card">
-            <span class="skill-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C7 2 3 6 3 11c0 2.8 1.8 4.5 4.2 4.5h.8a1.8 1.8 0 0 1 1.8 1.8c0 1.5 1.3 2.7 3 2.7 5 0 8.2-4 8.2-9C21 6.4 17 2 12 2z"/><circle cx="7.5" cy="10.5" r="1"/><circle cx="10.5" cy="7" r="1"/><circle cx="14.5" cy="7" r="1"/><circle cx="17" cy="10.5" r="1"/></svg>
-            </span>
-            <h3>CSS3</h3>
-            <p>Flexbox, Grid, responsive layouts</p>
+          <!-- Category 2: Backend & Database -->
+          <div class="skill-category tilt-card">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="2" width="20" height="8" rx="2" ry="2" />
+                  <rect x="2" y="14" width="20" height="8" rx="2" ry="2" />
+                  <line x1="6" y1="6" x2="6.01" y2="6" />
+                  <line x1="6" y1="18" x2="6.01" y2="18" />
+                </svg>
+              </div>
+              <div>
+                <h3>Backend &amp; APIs</h3>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Server Architecture &amp; Data</span>
+              </div>
+            </div>
+            <div class="skill-pills-wrap">
+              <span class="skill-tag">Node.js</span>
+              <span class="skill-tag">Express.js</span>
+              <span class="skill-tag">RESTful APIs</span>
+              <span class="skill-tag">CRUD Operations</span>
+              <span class="skill-tag">MongoDB Basics</span>
+              <span class="skill-tag">SQL Fundamentals</span>
+              <span class="skill-tag">Authentication Basics</span>
+            </div>
           </div>
 
-          <div class="skill-card tilt-card">
-            <span class="skill-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg>
-            </span>
-            <h3>JavaScript</h3>
-            <p>Interactive, dynamic UI</p>
-          </div>
-
-          <div class="skill-card tilt-card">
-            <span class="skill-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.2"/><circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="9" r="2.2"/><path d="M6 8.2V18"/><path d="M6 12c0-3.2 2.8-3 6-3h3.8"/></svg>
-            </span>
-            <h3>Git &amp; GitHub</h3>
-            <p>Version control &amp; collaboration</p>
-          </div>
-
-          <div class="skill-card tilt-card">
-            <span class="skill-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.7.6 1 1.3 1 2.3h6c0-1 .3-1.7 1-2.3A7 7 0 0 0 12 2z"/></svg>
-            </span>
-            <h3>Problem Solving</h3>
-            <p>Debugging &amp; logical thinking</p>
-          </div>
-
-          <div class="skill-card tilt-card">
-            <span class="skill-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M2.5 21c0-3.6 2.5-6.2 5.5-6.2s5.5 2.6 5.5 6.2"/><path d="M14.8 15.2c2.3.5 4.2 2.5 4.2 5.8"/></svg>
-            </span>
-            <h3>Teamwork</h3>
-            <p>Communication &amp; collaboration</p>
+          <!-- Category 3: Tools & Concepts -->
+          <div class="skill-category tilt-card">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="3" />
+                  <path
+                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+                </svg>
+              </div>
+              <div>
+                <h3>Tools &amp; Workflow</h3>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Development &amp; Collaboration</span>
+              </div>
+            </div>
+            <div class="skill-pills-wrap">
+              <span class="skill-tag">Git &amp; GitHub</span>
+              <span class="skill-tag">VS Code</span>
+              <span class="skill-tag">Postman</span>
+              <span class="skill-tag">Async/Await &amp; Fetch</span>
+              <span class="skill-tag">Chrome DevTools</span>
+              <span class="skill-tag">Problem Solving</span>
+              <span class="skill-tag">Team Collaboration</span>
+            </div>
           </div>
 
         </div>
       </div>
     </section>
 
-    <!-- EDUCATION -->
-    <section class="education reveal" id="education">
+    <!-- SERVICES SECTION -->
+    <section class="services reveal" id="services">
       <div class="section-inner">
-        <p class="eyebrow">Education</p>
-        <h2 class="section-title">Where I've studied</h2>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content tilt-card">
-              <h3>University of Sindh</h3>
-              <p class="timeline-meta">Bachelors &middot; 2019 &ndash; 2022</p>
-              <p>Completed my degree with a focus on computer science and software development fundamentals, building a strong foundation in programming and logical problem solving.</p>
+        <div class="services-header">
+          <p class="eyebrow">What I Offer</p>
+          <h2 class="section-title">Professional Services</h2>
+          <p class="section-subtitle">
+            Comprehensive digital solutions tailored to bring your vision to life &mdash; from modern full stack web development to standout visual branding and growth strategies.
+          </p>
+        </div>
+
+        <div class="services-grid">
+
+          <!-- Service 1: Web & Full Stack Development -->
+          <div class="service-card tilt-card">
+            <div class="service-card-top">
+              <div class="service-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="16 18 22 12 16 6" />
+                  <polyline points="8 6 2 12 8 18" />
+                  <line x1="12" y1="2" x2="12" y2="22" opacity="0.3" />
+                </svg>
+              </div>
+              <span class="service-badge">Core Expertise</span>
             </div>
+            <h3 class="service-title">Web &amp; Full Stack Development</h3>
+            <p class="service-desc">
+              Custom, fast, and fully responsive web applications built with modern frontend frameworks and robust Node.js &amp; Express backends.
+            </p>
+            <ul class="service-list">
+              <li><i class="fa-solid fa-check"></i> Custom Responsive Web Applications</li>
+              <li><i class="fa-solid fa-check"></i> Frontend UI (HTML5, CSS3, JS, Bootstrap)</li>
+              <li><i class="fa-solid fa-check"></i> REST APIs &amp; Node.js/Express Backend</li>
+              <li><i class="fa-solid fa-check"></i> Cross-Browser &amp; Mobile Optimization</li>
+            </ul>
+            <a href="#contact" class="service-link">
+              <span>Discuss Project</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
           </div>
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content tilt-card">
-              <h3>Software Development Internship</h3>
-              <p class="timeline-meta">Tech Innovators Inc. &middot; 2026</p>
-              <p>Hands-on training in HTML, CSS, JavaScript, Git and responsive design &mdash; building and shipping daily real-world applications for clients.</p>
+
+          <!-- Service 2: Graphic Designing -->
+          <div class="service-card tilt-card">
+            <div class="service-card-top">
+              <div class="service-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+                  <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+                  <path d="M2 2l7.586 7.586"/>
+                  <circle cx="11" cy="11" r="2"/>
+                </svg>
+              </div>
+              <span class="service-badge">Creative</span>
             </div>
+            <h3 class="service-title">Graphic Designing</h3>
+            <p class="service-desc">
+              Eye-catching visual designs and creative marketing assets crafted to capture attention and communicate your brand message effectively.
+            </p>
+            <ul class="service-list">
+              <li><i class="fa-solid fa-check"></i> Social Media Posts, Stories &amp; Ad Creatives</li>
+              <li><i class="fa-solid fa-check"></i> Marketing Banners, Posters &amp; Flyers</li>
+              <li><i class="fa-solid fa-check"></i> Web &amp; Mobile UI Layout Mockups</li>
+              <li><i class="fa-solid fa-check"></i> Vector Illustrations &amp; Print Assets</li>
+            </ul>
+            <a href="#contact" class="service-link">
+              <span>Discuss Project</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
           </div>
+
+          <!-- Service 3: Logo Designer & Branding -->
+          <div class="service-card tilt-card">
+            <div class="service-card-top">
+              <div class="service-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                  <line x1="3" y1="6" x2="21" y2="6"/>
+                  <path d="M16 10a4 4 0 0 1-8 0"/>
+                </svg>
+              </div>
+              <span class="service-badge">Branding</span>
+            </div>
+            <h3 class="service-title">Logo Design &amp; Branding</h3>
+            <p class="service-desc">
+              Memorable, unique, and versatile vector logos that embody your business values and establish a strong, lasting identity.
+            </p>
+            <ul class="service-list">
+              <li><i class="fa-solid fa-check"></i> Modern &amp; Minimalist Vector Logos</li>
+              <li><i class="fa-solid fa-check"></i> Brand Identity Guidelines &amp; Color Palettes</li>
+              <li><i class="fa-solid fa-check"></i> Typography &amp; Iconography Packages</li>
+              <li><i class="fa-solid fa-check"></i> High-Res Export (SVG, PNG, PDF, AI)</li>
+            </ul>
+            <a href="#contact" class="service-link">
+              <span>Discuss Project</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+
+          <!-- Service 4: Digital Marketing -->
+          <div class="service-card tilt-card">
+            <div class="service-card-top">
+              <div class="service-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                  <polyline points="17 6 23 6 23 12"/>
+                </svg>
+              </div>
+              <span class="service-badge">Growth</span>
+            </div>
+            <h3 class="service-title">Digital Marketing</h3>
+            <p class="service-desc">
+              Data-driven strategies and campaign management focused on maximizing your online visibility, engagement, and customer conversions.
+            </p>
+            <ul class="service-list">
+              <li><i class="fa-solid fa-check"></i> Search Engine Optimization (SEO Basics)</li>
+              <li><i class="fa-solid fa-check"></i> Social Media Content &amp; Growth Strategy</li>
+              <li><i class="fa-solid fa-check"></i> Audience Targeting &amp; Lead Generation</li>
+              <li><i class="fa-solid fa-check"></i> Performance Tracking &amp; ROI Analytics</li>
+            </ul>
+            <a href="#contact" class="service-link">
+              <span>Discuss Project</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- PROJECTS (SIMPLIFIED CARDS) -->
+    <!-- EXPERIENCE & EDUCATION -->
+    <section class="reveal" id="experience">
+      <div class="section-inner">
+        <p class="eyebrow">Career &amp; Learning Journey</p>
+        <h2 class="section-title">Internships &amp; Education</h2>
+
+        <div class="experience-grid">
+          <!-- Left: Internships -->
+          <div>
+            <h3
+              style="font-size: 1.25rem; color: var(--primary); margin-bottom: 24px; display: flex; align-items: center; gap: 8px;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+              </svg>
+              Remote Internship Programs
+            </h3>
+
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content tilt-card">
+                  <h4>ProStackHub</h4>
+                  <p class="timeline-company">Frontend Development Intern</p>
+                  <p>Built and delivered practical real-world client UI tasks, responsive layout designs, and modular
+                    JavaScript applications.</p>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content tilt-card">
+                  <h4>CodeAlpha</h4>
+                  <p class="timeline-company">Web Development Intern</p>
+                  <p>Developed dynamic web projects including interactive music player and gallery applications with
+                    robust DOM scripting.</p>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content tilt-card">
+                  <h4>DevelopersHub Corporation</h4>
+                  <p class="timeline-company">Front-End Development Intern</p>
+                  <p>Collaborated on user interface components, responsive cross-device layouts, and clean code
+                    optimization.</p>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content tilt-card">
+                  <h4>Codomax Digital &amp; Qwetrum</h4>
+                  <p class="timeline-company">Web Development Intern</p>
+                  <p>Completed intensive training in web engineering standards, version control workflows, and
+                    client-side solutions.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Education & Certifications -->
+          <div>
+            <h3
+              style="font-size: 1.25rem; color: var(--primary); margin-bottom: 24px; display: flex; align-items: center; gap: 8px;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                <path d="M6 12v5c3 3 9 3 12 0v-5" />
+              </svg>
+              Education &amp; Certification
+            </h3>
+
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content tilt-card">
+                  <h4>University of Sindh</h4>
+                  <p class="timeline-meta">B.Sc. (Pre-Engineering) &middot; 2016 &ndash; 2019</p>
+                  <p>Graduated with strong foundations in analytical thinking, mathematics, problem solving, and
+                    computer sciences.</p>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content tilt-card">
+                  <h4>Mehran University Certified</h4>
+                  <p class="timeline-meta">Web Developer Certificate</p>
+                  <p>Professional accreditation in modern web technologies, responsive UI design, and web development
+                    best practices.</p>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content tilt-card">
+                  <h4>Saylani Mass IT Training (SMIT)</h4>
+                  <p class="timeline-meta">Full Stack Web Development</p>
+                  <p>Hands-on mastery of Node.js, Express, MongoDB, RESTful APIs, and full stack application
+                    architecture.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION (WITH ALL USER GITHUB LIVE LINKS) -->
     <section class="projects reveal" id="projects">
       <div class="section-inner">
-        <p class="eyebrow">Projects</p>
-        <h2 class="section-title">Things I've built</h2>
+        <p class="eyebrow">Portfolio Showcase</p>
+        <h2 class="section-title">Live Projects &amp; Demos</h2>
+
+        <!-- Filter Tabs -->
+        <div class="projects-filter-bar">
+          <button class="filter-btn active" data-filter="all">All Projects</button>
+          <button class="filter-btn" data-filter="web-apps">Web Apps &amp; Dashboards</button>
+          <button class="filter-btn" data-filter="internship">Internship Tasks</button>
+          <button class="filter-btn" data-filter="api">APIs &amp; JavaScript</button>
+        </div>
+
         <div class="projects-grid">
 
-          <!-- Project 1: Nexus Security -->
-          <article class="project-card tilt-card">
-            <a href="https://nexus-security-one.vercel.app" target="_blank" rel="noopener noreferrer" class="project-header">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              <div class="mock-overlay">View Project &rarr;</div>
+          <!-- Project 1: WEB Template -->
+          <article class="project-card tilt-card" data-category="web-apps">
+            <a href="https://mairayounus.github.io/WEB-template/" target="_blank" rel="noopener noreferrer"
+              class="project-card-header" title="Open WEB Template Live Demo">
+              <span class="project-badge">LIVE DEMO</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <path d="M3 9h18" />
+                <path d="M9 21V9" />
+              </svg>
+              <div class="project-quick-preview">Open Live Link &rarr;</div>
             </a>
             <div class="project-body">
-              <h3>Nexus Security</h3>
-              <p>A modern web security application designed to protect user credentials and manage safe access across platforms. Built with a focus on clean UI and robust JavaScript logic.</p>
-              <div class="tag-list">
-                <span class="tag">HTML</span>
-                <span class="tag">CSS</span>
-                <span class="tag">JavaScript</span>
+              <h3>WEB Template Project</h3>
+              <a href="https://mairayounus.github.io/WEB-template/" target="_blank" rel="noopener noreferrer"
+                class="project-live-url">
+                mairayounus.github.io/WEB-template/ &nearr;
+              </a>
+              <p>A modern, clean, and high-performance responsive web template built with HTML5 &amp; CSS3. Features
+                modular responsive layouts, smooth navigation, and optimized styling.</p>
+              <div class="project-tags">
+                <span class="tag">HTML5</span>
+                <span class="tag">CSS3</span>
+                <span class="tag">Responsive</span>
+                <span class="tag">Web Design</span>
               </div>
-              <div class="project-links">
-                <a href="https://nexus-security-one.vercel.app" target="_blank" rel="noopener noreferrer" class="project-link">Live Demo &rarr;</a>
-                <a href="https://github.com/Mairayounus" target="_blank" rel="noopener noreferrer" class="project-link">GitHub &rarr;</a>
+              <div class="project-actions">
+                <a href="https://mairayounus.github.io/WEB-template/" target="_blank" rel="noopener noreferrer"
+                  class="project-action-btn btn-demo">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                  Live Demo
+                </a>
+                <a href="https://github.com/Mairayounus/WEB-template" target="_blank" rel="noopener noreferrer"
+                  class="project-action-btn btn-code">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path
+                      d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.6 2.8 5.5 3.1 5.5 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4.1 9.5c0 4.6 2.7 5.7 5.5 6-.4.4-.4.9-.5 1.5V21" />
+                  </svg>
+                  GitHub
+                </a>
               </div>
             </div>
           </article>
 
           <!-- Project 2: Rival Project -->
-          <article class="project-card tilt-card">
-            <a href="https://mairayounus.github.io/Rival-project/" target="_blank" rel="noopener noreferrer" class="project-header">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
-              <div class="mock-overlay">View Project &rarr;</div>
+          <article class="project-card tilt-card" data-category="web-apps">
+            <a href="https://mairayounus.github.io/Rival-project/" target="_blank" rel="noopener noreferrer"
+              class="project-card-header" title="Open Rival Project Live Demo">
+              <span class="project-badge">LIVE DEMO</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="3" y="3" width="7" height="9" />
+                <rect x="14" y="3" width="7" height="5" />
+                <rect x="14" y="12" width="7" height="9" />
+                <rect x="3" y="16" width="7" height="5" />
+              </svg>
+              <div class="project-quick-preview">Open Live Link &rarr;</div>
             </a>
             <div class="project-body">
-              <h3>Rival Project</h3>
-              <p>A centralized dashboard built to monitor security logs and manage user roles. Features real-time data updates and responsive interactive charts.</p>
-              <div class="tag-list">
-                <span class="tag">HTML</span>
-                <span class="tag">CSS</span>
+              <h3>Rival Project Dashboard</h3>
+              <a href="https://mairayounus.github.io/Rival-project/" target="_blank" rel="noopener noreferrer"
+                class="project-live-url">
+                mairayounus.github.io/Rival-project/ &nearr;
+              </a>
+              <p>A centralized dashboard application designed to monitor security logs and manage user permissions.
+                Features dynamic UI metrics, interactive tables, and responsive charts.</p>
+              <div class="project-tags">
+                <span class="tag">HTML5</span>
+                <span class="tag">CSS3</span>
+                <span class="tag">JavaScript</span>
                 <span class="tag">REST API</span>
               </div>
-              <div class="project-links">
-                <a href="https://mairayounus.github.io/Rival-project/" target="_blank" rel="noopener noreferrer" class="project-link">Live Demo &rarr;</a>
-                <a href="https://github.com/Mairayounus" target="_blank" rel="noopener noreferrer" class="project-link">GitHub &rarr;</a>
+              <div class="project-actions">
+                <a href="https://mairayounus.github.io/Rival-project/" target="_blank" rel="noopener noreferrer"
+                  class="project-action-btn btn-demo">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                  Live Demo
+                </a>
+                <a href="https://github.com/Mairayounus/Rival-project" target="_blank" rel="noopener noreferrer"
+                  class="project-action-btn btn-code">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path
+                      d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.6 2.8 5.5 3.1 5.5 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4.1 9.5c0 4.6 2.7 5.7 5.5 6-.4.4-.4.9-.5 1.5V21" />
+                  </svg>
+                  GitHub
+                </a>
               </div>
             </div>
           </article>
 
-          <!-- Project 3: Coming Soon -->
-          <article class="project-card tilt-card project-card-soon">
-            <div class="project-header" style="cursor: default;">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
-            </div>
+          <!-- Project 3: Bootstrap Project -->
+          <article class="project-card tilt-card" data-category="web-apps">
+            <a href="https://mairayounus.github.io/bootstrap-Project/" target="_blank" rel="noopener noreferrer"
+              class="project-card-header" title="Open Bootstrap Project Live Demo">
+              <span class="project-badge">LIVE DEMO</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                <polyline points="2 17 12 22 22 17" />
+                <polyline points="2 12 12 17 22 12" />
+              </svg>
+              <div class="project-quick-preview">Open Live Link &rarr;</div>
+            </a>
             <div class="project-body">
-              <h3>More coming soon</h3>
-              <p>New projects are added as the internship progresses &mdash; check back soon!</p>
+              <h3>Bootstrap Responsive Landing Page</h3>
+              <a href="https://mairayounus.github.io/bootstrap-Project/" target="_blank" rel="noopener noreferrer"
+                class="project-live-url">
+                mairayounus.github.io/bootstrap-Project/ &nearr;
+              </a>
+              <p>A full responsive web platform built with Bootstrap 5, featuring structured grid navigation, cards
+                showcase, modal components, and mobile-friendly layouts.</p>
+              <div class="project-tags">
+                <span class="tag">Bootstrap 5</span>
+                <span class="tag">HTML5</span>
+                <span class="tag">CSS3</span>
+                <span class="tag">Mobile-First</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://mairayounus.github.io/bootstrap-Project/" target="_blank" rel="noopener noreferrer"
+                  class="project-action-btn btn-demo">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                  Live Demo
+                </a>
+                <a href="https://github.com/Mairayounus/bootstrap-Project" target="_blank" rel="noopener noreferrer"
+                  class="project-action-btn btn-code">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path
+                      d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.6 2.8 5.5 3.1 5.5 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4.1 9.5c0 4.6 2.7 5.7 5.5 6-.4.4-.4.9-.5 1.5V21" />
+                  </svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 4: ProStackHub Task 2 -->
+          <article class="project-card tilt-card" data-category="internship">
+            <a href="https://mairayounus.github.io/prostackhub-task2/" target="_blank" rel="noopener noreferrer"
+              class="project-card-header" title="Open ProStackHub Task 2 Live Demo">
+              <span class="project-badge">LIVE DEMO</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+              </svg>
+              <div class="project-quick-preview">Open Live Link &rarr;</div>
+            </a>
+            <div class="project-body">
+              <h3>ProStackHub Task 2</h3>
+              <a href="https://mairayounus.github.io/prostackhub-task2/" target="_blank" rel="noopener noreferrer"
+                class="project-live-url">
+                mairayounus.github.io/prostackhub-task2/ &nearr;
+              </a>
+              <p>Practical frontend internship project developed during web development internship at ProStack Hub,
+                featuring clean interactive layouts and real-world workflows.</p>
+              <div class="project-tags">
+                <span class="tag">Frontend</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Internship</span>
+                <span class="tag">Git</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://mairayounus.github.io/prostackhub-task2/" target="_blank" rel="noopener noreferrer"
+                  class="project-action-btn btn-demo">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                  Live Demo
+                </a>
+                <a href="https://github.com/Mairayounus/prostackhub-task2" target="_blank" rel="noopener noreferrer"
+                  class="project-action-btn btn-code">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path
+                      d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.6 2.8 5.5 3.1 5.5 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4.1 9.5c0 4.6 2.7 5.7 5.5 6-.4.4-.4.9-.5 1.5V21" />
+                  </svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 5: ProStackHub Task 1 -->
+          <article class="project-card tilt-card" data-category="internship">
+            <a href="https://mairayounus.github.io/prostackhub-task1/" target="_blank" rel="noopener noreferrer"
+              class="project-card-header" title="Open ProStackHub Task 1 Live Demo">
+              <span class="project-badge">LIVE DEMO</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <polyline points="16 18 22 12 16 6" />
+                <polyline points="8 6 2 12 8 18" />
+              </svg>
+              <div class="project-quick-preview">Open Live Link &rarr;</div>
+            </a>
+            <div class="project-body">
+              <h3>ProStackHub Task 1</h3>
+              <a href="https://mairayounus.github.io/prostackhub-task1/" target="_blank" rel="noopener noreferrer"
+                class="project-live-url">
+                mairayounus.github.io/prostackhub-task1/ &nearr;
+              </a>
+              <p>Foundational web engineering project created for the ProStackHub internship program, highlighting
+                semantic markup, structured CSS, and responsive styling.</p>
+              <div class="project-tags">
+                <span class="tag">HTML5</span>
+                <span class="tag">CSS3</span>
+                <span class="tag">Internship</span>
+                <span class="tag">Responsive</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://mairayounus.github.io/prostackhub-task1/" target="_blank" rel="noopener noreferrer"
+                  class="project-action-btn btn-demo">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                  Live Demo
+                </a>
+                <a href="https://github.com/Mairayounus/prostackhub-task1" target="_blank" rel="noopener noreferrer"
+                  class="project-action-btn btn-code">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path
+                      d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.6 2.8 5.5 3.1 5.5 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4.1 9.5c0 4.6 2.7 5.7 5.5 6-.4.4-.4.9-.5 1.5V21" />
+                  </svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 6: Nexus Security -->
+          <article class="project-card tilt-card" data-category="web-apps">
+            <a href="https://nexus-security-one.vercel.app" target="_blank" rel="noopener noreferrer"
+              class="project-card-header" title="Open Nexus Security Live Demo">
+              <span class="project-badge">VERCEL LIVE</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+              <div class="project-quick-preview">Open Live Link &rarr;</div>
+            </a>
+            <div class="project-body">
+              <h3>Nexus Security Application</h3>
+              <a href="https://nexus-security-one.vercel.app" target="_blank" rel="noopener noreferrer"
+                class="project-live-url">
+                nexus-security-one.vercel.app &nearr;
+              </a>
+              <p>A modern web security application designed to protect user credentials and manage safe access across
+                platforms. Built with clean UI and robust JavaScript logic.</p>
+              <div class="project-tags">
+                <span class="tag">Next.js</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">Tailwind CSS</span>
+                <span class="tag">Auth</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://nexus-security-one.vercel.app" target="_blank" rel="noopener noreferrer"
+                  class="project-action-btn btn-demo">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                  Live Demo
+                </a>
+                <a href="https://github.com/Mairayounus/Nexus-security" target="_blank" rel="noopener noreferrer"
+                  class="project-action-btn btn-code">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path
+                      d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.6 2.8 5.5 3.1 5.5 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4.1 9.5c0 4.6 2.7 5.7 5.5 6-.4.4-.4.9-.5 1.5V21" />
+                  </svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 7: Weather API App -->
+          <article class="project-card tilt-card" data-category="api">
+            <a href="https://mairayounus.github.io/api-weather/" target="_blank" rel="noopener noreferrer"
+              class="project-card-header" title="Open Weather API App Live Demo">
+              <span class="project-badge">LIVE DEMO</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" />
+              </svg>
+              <div class="project-quick-preview">Open Live Link &rarr;</div>
+            </a>
+            <div class="project-body">
+              <h3>Weather Forecast API App</h3>
+              <a href="https://mairayounus.github.io/api-weather/" target="_blank" rel="noopener noreferrer"
+                class="project-live-url">
+                mairayounus.github.io/api-weather/ &nearr;
+              </a>
+              <p>Real-time Weather API application fetching meteorological data for searched cities worldwide,
+                displaying temperature, humidity, wind conditions, and weather alerts.</p>
+              <div class="project-tags">
+                <span class="tag">JavaScript</span>
+                <span class="tag">OpenWeather API</span>
+                <span class="tag">Async/Await</span>
+                <span class="tag">CSS3</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://mairayounus.github.io/api-weather/" target="_blank" rel="noopener noreferrer"
+                  class="project-action-btn btn-demo">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                  Live Demo
+                </a>
+                <a href="https://github.com/Mairayounus/api-weather" target="_blank" rel="noopener noreferrer"
+                  class="project-action-btn btn-code">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path
+                      d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.6 2.8 5.5 3.1 5.5 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4.1 9.5c0 4.6 2.7 5.7 5.5 6-.4.4-.4.9-.5 1.5V21" />
+                  </svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 8: Interactive Music Player -->
+          <article class="project-card tilt-card" data-category="api">
+            <a href="https://mairayounus.github.io/codealpha_musicplayer/" target="_blank" rel="noopener noreferrer"
+              class="project-card-header" title="Open Music Player Live Demo">
+              <span class="project-badge">LIVE DEMO</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M9 18V5l12-2v13" />
+                <circle cx="6" cy="18" r="3" />
+                <circle cx="18" cy="16" r="3" />
+              </svg>
+              <div class="project-quick-preview">Open Live Link &rarr;</div>
+            </a>
+            <div class="project-body">
+              <h3>Interactive Music Player</h3>
+              <a href="https://mairayounus.github.io/codealpha_musicplayer/" target="_blank" rel="noopener noreferrer"
+                class="project-live-url">
+                mairayounus.github.io/codealpha_musicplayer/ &nearr;
+              </a>
+              <p>Dynamic audio player web app featuring track playlist control, interactive progress bar scrubbing,
+                volume adjustments, and responsive dark audio interface.</p>
+              <div class="project-tags">
+                <span class="tag">HTML5 Audio</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">CodeAlpha</span>
+                <span class="tag">CSS UI</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://mairayounus.github.io/codealpha_musicplayer/" target="_blank" rel="noopener noreferrer"
+                  class="project-action-btn btn-demo">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                  Live Demo
+                </a>
+                <a href="https://github.com/Mairayounus/codealpha_musicplayer" target="_blank" rel="noopener noreferrer"
+                  class="project-action-btn btn-code">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path
+                      d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.6 2.8 5.5 3.1 5.5 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4.1 9.5c0 4.6 2.7 5.7 5.5 6-.4.4-.4.9-.5 1.5V21" />
+                  </svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 9: Smart To-Do List -->
+          <article class="project-card tilt-card" data-category="api">
+            <a href="https://mairayounus.github.io/todo.list/" target="_blank" rel="noopener noreferrer"
+              class="project-card-header" title="Open To-Do List Live Demo">
+              <span class="project-badge">LIVE DEMO</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <polyline points="9 11 12 14 22 4" />
+                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+              </svg>
+              <div class="project-quick-preview">Open Live Link &rarr;</div>
+            </a>
+            <div class="project-body">
+              <h3>Smart To-Do List App</h3>
+              <a href="https://mairayounus.github.io/todo.list/" target="_blank" rel="noopener noreferrer"
+                class="project-live-url">
+                mairayounus.github.io/todo.list/ &nearr;
+              </a>
+              <p>A clean and responsive task manager featuring persistent browser local storage, status toggle, task
+                filters, and interactive CRUD operations.</p>
+              <div class="project-tags">
+                <span class="tag">JavaScript</span>
+                <span class="tag">LocalStorage</span>
+                <span class="tag">CRUD</span>
+                <span class="tag">DOM Scripting</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://mairayounus.github.io/todo.list/" target="_blank" rel="noopener noreferrer"
+                  class="project-action-btn btn-demo">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                  Live Demo
+                </a>
+                <a href="https://github.com/Mairayounus/todo.list" target="_blank" rel="noopener noreferrer"
+                  class="project-action-btn btn-code">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path
+                      d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.6 2.8 5.5 3.1 5.5 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4.1 9.5c0 4.6 2.7 5.7 5.5 6-.4.4-.4.9-.5 1.5V21" />
+                  </svg>
+                  GitHub
+                </a>
+              </div>
             </div>
           </article>
 
@@ -237,44 +938,101 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
+    <!-- BACKEND POWERED CONTACT SECTION -->
     <section class="contact reveal" id="contact">
       <div class="section-inner">
-        <p class="eyebrow">Contact</p>
-        <h2 class="section-title">Let's work together</h2>
+        <p class="eyebrow">Get in touch</p>
+        <h2 class="section-title">Let's build together</h2>
+
         <div class="contact-grid">
           <div class="contact-info">
-            <p>Have a project in mind, or just want to say hi? My inbox is open.</p>
+            <p>
+              Looking for a dedicated Full Stack or Frontend Developer? Have a project, internship, or full-time
+              opportunity? My inbox is always open.
+            </p>
             <ul class="contact-list">
               <li>
-                <span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></span>
-                <a href="mailto:your.email@example.com">your.email@example.com</a>
+                <span class="contact-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                    <path d="m2 7 10 6 10-6" />
+                  </svg>
+                </span>
+                <div>
+                  <div style="font-size:0.78rem; color:var(--text-muted); text-transform:uppercase;">Email</div>
+                  <a href="mailto:mairayounus90@gmail.com">mairayounus90@gmail.com</a>
+                </div>
               </li>
               <li>
-                <span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="1.6"/><path d="M10 9v12M10 13c0-2.2 2-4 4.5-4S19 10.8 19 13v8"/></svg></span>
-                <a href="https://www.linkedin.com/in/maira-younus-544a1438a" target="_blank" rel="noopener">linkedin.com/in/maira-younus</a>
+                <span class="contact-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path
+                      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                  </svg>
+                </span>
+                <div>
+                  <div style="font-size:0.78rem; color:var(--text-muted); text-transform:uppercase;">Phone / WhatsApp
+                  </div>
+                  <a href="tel:03144351035">03144351035</a>
+                </div>
               </li>
               <li>
-                <span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.6 2.8 5.5 3.1 5.5 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4.1 9.5c0 4.6 2.7 5.7 5.5 6-.4.4-.4.9-.5 1.5V21"/></svg></span>
-                <a href="https://github.com/Mairayounus" target="_blank" rel="noopener">github.com/Mairayounus</a>
+                <span class="contact-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="9" width="4" height="12" />
+                    <circle cx="4" cy="4" r="2" />
+                    <path d="M10 9v12M10 13c0-2.2 2-4 4.5-4S19 10.8 19 13v8" />
+                  </svg>
+                </span>
+                <div>
+                  <div style="font-size:0.78rem; color:var(--text-muted); text-transform:uppercase;">LinkedIn</div>
+                  <a href="https://linkedin.com/in/maira-younus-544a1438a" target="_blank"
+                    rel="noopener">linkedin.com/in/maira-younus-544a1438a</a>
+                </div>
+              </li>
+              <li>
+                <span class="contact-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path
+                      d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.6 2.8 5.5 3.1 5.5 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4.1 9.5c0 4.6 2.7 5.7 5.5 6-.4.4-.4.9-.5 1.5V21" />
+                  </svg>
+                </span>
+                <div>
+                  <div style="font-size:0.78rem; color:var(--text-muted); text-transform:uppercase;">GitHub</div>
+                  <a href="https://github.com/Mairayounus" target="_blank" rel="noopener">github.com/Mairayounus</a>
+                </div>
               </li>
             </ul>
           </div>
+
+          <!-- Real Backend API Connected Form -->
           <form class="contact-form tilt-card" id="contactForm" novalidate>
             <div class="form-row">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" placeholder="Your name" required>
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" placeholder="John Doe" required>
             </div>
             <div class="form-row">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="you@example.com" required>
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="john@example.com" required>
             </div>
             <div class="form-row">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" rows="4" placeholder="Tell me about your project..." required></textarea>
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="Project Inquiry / Job Opportunity">
             </div>
-            <button type="submit" class="btn btn-primary">Send Message</button>
-            <p class="form-status" id="formStatus" role="status"></p>
+            <div class="form-row">
+              <label for="message">Your Message</label>
+              <textarea id="message" name="message" rows="4"
+                placeholder="Tell me about your project, timeline, or requirements..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" id="submitBtn" style="width: 100%;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                stroke-linecap="round" stroke-linejoin="round" id="sendBtnIcon">
+                <line x1="22" y1="2" x2="11" y2="13" />
+                <polygon points="22 2 15 22 11 13 2 9 22 2" />
+              </svg>
+              <span id="btnText">Send Message</span>
+            </button>
+            <div class="form-status" id="formStatus" role="status"></div>
           </form>
         </div>
       </div>
@@ -282,33 +1040,260 @@
 
   </main>
 
-  <!-- SCROLL TO TOP -->
-  <div class="scroll-top" id="scrollTop" title="Scroll to Top">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  <!-- RESUME MODAL VIEWER -->
+  <div class="modal-backdrop" id="resumeModal" role="dialog" aria-modal="true" aria-labelledby="resumeModalTitle">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="resumeModalTitle">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+            <polyline points="14 2 14 8 20 8" />
+          </svg>
+          Maira Younus &mdash; Resume Preview
+        </h3>
+        <div class="modal-header-actions">
+          <a href="resume.html" target="_blank" class="btn btn-primary" style="padding: 6px 14px; font-size: 0.84rem;">
+            Open Fullscreen / Print PDF &nearr;
+          </a>
+          <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">&times;</button>
+        </div>
+      </div>
+      <div class="modal-body" style="padding: 0; height: 75vh;">
+        <iframe src="resume.html" title="Maira Younus Resume Document"
+          style="width: 100%; height: 100%; border: none;"></iframe>
+      </div>
+    </div>
   </div>
 
+  <!-- FLOATING SCROLL TO TOP -->
+  <div class="scroll-top" id="scrollTop" title="Scroll to Top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+      stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15" />
+    </svg>
+  </div>
+
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="section-inner footer-inner">
-      <p>&copy; <span id="year"></span> <span class="highlight">Maira Younus</span>. Built with HTML &amp; CSS during my web dev internship.</p>
-      <ul class="footer-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
+      <div class="footer-brand">
+        <p class="footer-copy">
+          <span class="footer-brand-name">Maira Younus</span>
+          <span class="footer-brand-title">&middot; Full Stack Developer</span>
+        </p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer Links">
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="resume.html" target="_blank" class="footer-resume-link">Resume</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-actions">
         <div class="footer-social">
-          <a href="https://github.com/Mairayounus" target="_blank" rel="noopener" title="GitHub">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.6 2.8 5.5 3.1 5.5 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4.1 9.5c0 4.6 2.7 5.7 5.5 6-.4.4-.4.9-.5 1.5V21"/></svg>
+          <a href="https://github.com/Mairayounus" target="_blank" rel="noopener" title="GitHub"
+            aria-label="GitHub Profile">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path
+                d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.6 2.8 5.5 3.1 5.5 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4.1 9.5c0 4.6 2.7 5.7 5.5 6-.4.4-.4.9-.5 1.5V21" />
+            </svg>
           </a>
-          <a href="mailto:your.email@example.com" title="Email">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+          <a href="https://linkedin.com/in/maira-younus-544a1438a" target="_blank" rel="noopener" title="LinkedIn"
+            aria-label="LinkedIn Profile">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="9" width="4" height="12" />
+              <circle cx="4" cy="4" r="2" />
+              <path d="M10 9v12M10 13c0-2.2 2-4 4.5-4S19 10.8 19 13v8" />
+            </svg>
+          </a>
+          <a href="mailto:mairayounus90@gmail.com" title="Email" aria-label="Send Email">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="4" width="20" height="16" rx="2" />
+              <path d="m2 7 10 6 10-6" />
+            </svg>
           </a>
         </div>
-      </ul>
+      </div>
     </div>
   </footer>
 
+  <!-- FLOATING AI CHATBOT WIDGET -->
+  <button class="ai-chat-launcher" id="aiChatLauncher" aria-label="Toggle AI Mode">
+    <span>AI Mode</span>
+  </button>
+
+  <div class="ai-chat-window" id="aiChatWindow">
+    <div class="ai-chat-header">
+      <div class="ai-chat-profile">
+        <div class="ai-chat-title">
+          <h4>AI Mode</h4>
+          <span><span class="status-dot" style="width:6px;height:6px;"></span> Active &bull; Ready to help</span>
+        </div>
+      </div>
+      <button class="ai-close-btn" id="aiCloseBtn" aria-label="Close Chat">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="ai-chat-messages" id="aiChatMessages">
+      <div class="ai-msg bot">
+        <div class="bot-msg-header">
+          <span>AI Mode</span>
+        </div>
+        <div class="bot-msg-body">
+          Hi there! 👋 I am your <strong>Portfolio AI</strong>. Ask me anything about Maira's projects, technical
+          skills, experience, or resume!
+        </div>
+      </div>
+      <div class="ai-typing-indicator" id="aiTypingIndicator">
+        <span class="ai-typing-dot"></span>
+        <span class="ai-typing-dot"></span>
+        <span class="ai-typing-dot"></span>
+      </div>
+    </div>
+
+    <div class="ai-quick-prompts">
+      <button class="ai-prompt-pill" data-prompt="What projects has Maira built?">Projects</button>
+      <button class="ai-prompt-pill" data-prompt="What are Maira's technical skills?">Tech Stack</button>
+      <button class="ai-prompt-pill" data-prompt="Where can I see Maira's resume?">Resume</button>
+      <button class="ai-prompt-pill" data-prompt="How can I contact Maira?">Contact</button>
+    </div>
+
+    <form class="ai-chat-input-bar" id="aiChatForm">
+      <input type="text" class="ai-chat-input" id="aiChatInput" placeholder="Ask AI anything about Maira's work..."
+        autocomplete="off">
+      <button type="submit" class="ai-chat-send-btn" aria-label="Send">
+        <i class="fa-solid fa-paper-plane"></i>
+      </button>
+    </form>
+  </div>
+
+  <!-- GSAP & ScrollTrigger Animation Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- INTERACTIVE JAVASCRIPT & BACKEND INTEGRATION -->
   <script>
-    // Mobile nav toggle
+    // Register GSAP ScrollTrigger
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+      gsap.registerPlugin(ScrollTrigger);
+
+      // 1. Navbar slide-down animation on load
+      gsap.from('.site-header', {
+        y: -60,
+        opacity: 0,
+        duration: 0.9,
+        ease: 'power3.out'
+      });
+
+      // 2. Hero Elements Staggered Entrance
+      gsap.from('.hero-content .eyebrow', {
+        y: 20,
+        opacity: 0,
+        duration: 0.7,
+        delay: 0.2,
+        ease: 'power2.out'
+      });
+
+      gsap.from('.hero-title', {
+        y: 35,
+        opacity: 0,
+        duration: 0.9,
+        delay: 0.35,
+        ease: 'power3.out'
+      });
+
+      gsap.from('.hero-subtitle', {
+        y: 30,
+        opacity: 0,
+        duration: 0.9,
+        delay: 0.5,
+        ease: 'power3.out'
+      });
+
+      gsap.from('.hero-actions .btn', {
+        y: 25,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.15,
+        delay: 0.65,
+        ease: 'back.out(1.7)'
+      });
+
+      gsap.from('.tech-ticker .ticker-pill', {
+        scale: 0.8,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.08,
+        delay: 0.85,
+        ease: 'power2.out'
+      });
+
+      // 3. Section Titles Scroll Animation
+      gsap.utils.toArray('.section-title').forEach(title => {
+        gsap.from(title, {
+          scrollTrigger: {
+            trigger: title,
+            start: 'top 85%',
+            toggleActions: 'play none none none'
+          },
+          x: -30,
+          opacity: 0,
+          duration: 0.8,
+          ease: 'power2.out'
+        });
+      });
+
+      // 4. Project Cards Stagger Animation on Scroll
+      gsap.from('.project-card', {
+        scrollTrigger: {
+          trigger: '.projects-grid',
+          start: 'top 80%',
+          toggleActions: 'play none none none'
+        },
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: 'power3.out'
+      });
+
+      // 5. Skills Categories Animation on Scroll
+      gsap.from('.skill-category', {
+        scrollTrigger: {
+          trigger: '.skills-grid',
+          start: 'top 80%',
+          toggleActions: 'play none none none'
+        },
+        scale: 0.92,
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: 'back.out(1.4)'
+      });
+
+      // 6. Timeline Items Animation
+      gsap.from('.timeline-item', {
+        scrollTrigger: {
+          trigger: '.experience-grid',
+          start: 'top 80%',
+          toggleActions: 'play none none none'
+        },
+        x: -25,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: 'power2.out'
+      });
+    }
+    // Mobile navigation toggle
     const navToggle = document.getElementById('navToggle');
     const navLinks = document.getElementById('navLinks');
 
@@ -326,20 +1311,189 @@
       });
     });
 
-    // Contact form
-    const contactForm = document.getElementById('contactForm');
-    const formStatus = document.getElementById('formStatus');
+    // Multi-phrase Typewriter effect
+    const typewriterElement = document.getElementById('typewriter');
+    const phrases = [
+      "Full Stack Developer.",
+      "Frontend & REST API Engineer.",
+      "Node.js & Express Specialist.",
+      "Building Clean Digital Experiences."
+    ];
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
 
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      formStatus.textContent = "Thanks for reaching out! I'll get back to you soon.";
-      contactForm.reset();
+    function typeEffect() {
+      const currentPhrase = phrases[phraseIndex];
+      if (!isDeleting) {
+        typewriterElement.textContent = currentPhrase.substring(0, charIndex + 1);
+        charIndex++;
+        if (charIndex === currentPhrase.length) {
+          isDeleting = true;
+          setTimeout(typeEffect, 1800);
+          return;
+        }
+        setTimeout(typeEffect, 90);
+      } else {
+        typewriterElement.textContent = currentPhrase.substring(0, charIndex - 1);
+        charIndex--;
+        if (charIndex === 0) {
+          isDeleting = false;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+          setTimeout(typeEffect, 400);
+          return;
+        }
+        setTimeout(typeEffect, 45);
+      }
+    }
+    setTimeout(typeEffect, 600);
+
+    // Project category filtering
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.getAttribute('data-filter');
+
+        projectCards.forEach(card => {
+          if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
     });
 
-    // Footer year
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // Backend Connected Contact Form with emailjs support
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+    const submitBtn = document.getElementById('submitBtn');
+    const btnText = document.getElementById('btnText');
 
-    // Scroll-reveal
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const subject = document.getElementById('subject').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      // Client-side validations
+      if (!name || name.length < 2) {
+        formStatus.className = 'form-status error';
+        formStatus.textContent = 'Please enter your name (minimum 2 characters).';
+        return;
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email || !emailRegex.test(email)) {
+        formStatus.className = 'form-status error';
+        formStatus.textContent = 'Please enter a valid email address (e.g. name@example.com).';
+        return;
+      }
+
+      if (!message || message.length < 5) {
+        formStatus.className = 'form-status error';
+        formStatus.textContent = 'Please write a message (minimum 5 characters).';
+        return;
+      }
+
+      // Loading state
+      submitBtn.disabled = true;
+      submitBtn.style.opacity = '0.75';
+      submitBtn.style.cursor = 'not-allowed';
+      btnText.textContent = 'Sending Message...';
+      formStatus.style.display = 'none';
+
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ name, email, subject, message })
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+          formStatus.className = 'form-status success';
+          formStatus.textContent = data.message || 'Thank you! Your message has been sent successfully.';
+          contactForm.reset();
+        } else {
+          formStatus.className = 'form-status error';
+          formStatus.textContent = data.error || (data.warning ? ('Notice: ' + data.warning) : 'Failed to send message. Please try again.');
+        }
+      } catch (err) {
+        // Fallback for network issues
+        formStatus.className = 'form-status error';
+        formStatus.textContent = "Unable to connect to the backend server. Please verify 'npm start' is running on http://localhost:3000.";
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = '1';
+        submitBtn.style.cursor = 'pointer';
+        btnText.textContent = 'Send Message';
+      }
+    });
+
+    // Resume Modal open/close controls
+    const resumeModal = document.getElementById('resumeModal');
+    const modalCloseBtn = document.getElementById('modalCloseBtn');
+    const heroResumeBtn = document.getElementById('heroResumeBtn');
+    const navResumeBtn = document.getElementById('navResumeBtn');
+
+    function openResumeModal(e) {
+      if (window.innerWidth > 600) {
+        e.preventDefault();
+        resumeModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    if (heroResumeBtn) heroResumeBtn.addEventListener('click', openResumeModal);
+    if (navResumeBtn) navResumeBtn.addEventListener('click', openResumeModal);
+
+    modalCloseBtn.addEventListener('click', () => {
+      resumeModal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    });
+
+    resumeModal.addEventListener('click', (e) => {
+      if (e.target === resumeModal) {
+        resumeModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    // 3D Tilt & Cursor Spotlight
+    const tiltCards = document.querySelectorAll('.tilt-card');
+    tiltCards.forEach(card => {
+      if (window.matchMedia('(hover: none)').matches) return;
+
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * -4;
+        const rotateY = ((x - centerX) / centerX) * 4;
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.01, 1.01, 1.01)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+      });
+    });
+
+    // Scroll reveal observer
     const revealEls = document.querySelectorAll('.reveal');
     if ('IntersectionObserver' in window) {
       const revealObserver = new IntersectionObserver((entries) => {
@@ -355,61 +1509,7 @@
       revealEls.forEach(el => el.classList.add('is-visible'));
     }
 
-    // Typewriter
-    const typewriterElement = document.getElementById('typewriter');
-    const nameText = "Maira Younus";
-    let charIndex = 0;
-    let isDeleting = false;
-
-    function typeWriter() {
-      if (!isDeleting && charIndex < nameText.length) {
-        typewriterElement.textContent += nameText.charAt(charIndex);
-        charIndex++;
-        setTimeout(typeWriter, 120);
-      } else if (isDeleting && charIndex > 0) {
-        typewriterElement.textContent = nameText.substring(0, charIndex - 1);
-        charIndex--;
-        setTimeout(typeWriter, 60);
-      } else {
-        if (!isDeleting) {
-          isDeleting = true;
-          setTimeout(typeWriter, 2000);
-        } else {
-          isDeleting = false;
-          setTimeout(typeWriter, 500);
-        }
-      }
-    }
-    setTimeout(typeWriter, 800);
-
-    // 3D Tilt & Spotlight Effect for Cards
-    const tiltCards = document.querySelectorAll('.tilt-card');
-    
-    tiltCards.forEach(card => {
-      if (window.matchMedia('(hover: none)').matches) return;
-
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        
-        card.style.setProperty('--mouse-x', `${x}px`);
-        card.style.setProperty('--mouse-y', `${y}px`);
-        
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        const rotateX = ((y - centerY) / centerY) * -5; 
-        const rotateY = ((x - centerX) / centerX) * 5;
-        
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.01, 1.01, 1.01)`;
-      });
-
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
-      });
-    });
-
-    // Scroll to Top Button
+    // Scroll to top button
     const scrollTopBtn = document.getElementById('scrollTop');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 400) {
@@ -421,6 +1521,126 @@
     scrollTopBtn.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+
+    // Year in footer (if present)
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    // ===================================
+    // AI CHATBOT LOGIC
+    // ===================================
+    const aiLauncher = document.getElementById('aiChatLauncher');
+    const aiWindow = document.getElementById('aiChatWindow');
+    const aiClose = document.getElementById('aiCloseBtn');
+    const aiForm = document.getElementById('aiChatForm');
+    const aiInput = document.getElementById('aiChatInput');
+    const aiMessages = document.getElementById('aiChatMessages');
+    const aiTyping = document.getElementById('aiTypingIndicator');
+    const aiPills = document.querySelectorAll('.ai-prompt-pill');
+
+    function toggleChat(open) {
+      const shouldOpen = open !== undefined ? open : !aiWindow.classList.contains('open');
+      if (shouldOpen) {
+        aiWindow.classList.add('open');
+        if (window.innerWidth > 600) aiInput.focus();
+        scrollToBottom();
+      } else {
+        aiWindow.classList.remove('open');
+      }
+    }
+
+    if (aiLauncher) aiLauncher.addEventListener('click', () => toggleChat());
+    if (aiClose) aiClose.addEventListener('click', () => toggleChat(false));
+
+    // Close chatbot on clicking outside or pressing Escape
+    document.addEventListener('click', (e) => {
+      if (aiWindow && aiWindow.classList.contains('open')) {
+        const clickedLauncher = aiLauncher && aiLauncher.contains(e.target);
+        const clickedInside = aiWindow.contains(e.target);
+        if (!clickedInside && !clickedLauncher) {
+          toggleChat(false);
+        }
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && aiWindow && aiWindow.classList.contains('open')) {
+        toggleChat(false);
+      }
+    });
+
+    function scrollToBottom() {
+      setTimeout(() => {
+        aiMessages.scrollTop = aiMessages.scrollHeight;
+      }, 50);
+    }
+
+    function appendMessage(text, isUser = false) {
+      const msgDiv = document.createElement('div');
+      msgDiv.className = `ai-msg ${isUser ? 'user' : 'bot'}`;
+
+      if (isUser) {
+        msgDiv.textContent = text;
+      } else {
+        // Simple Markdown parsing for bold, links, line breaks, and bullet points
+        let formatted = text
+          .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+          .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
+          .replace(/\n• /g, '<br>&bull; ')
+          .replace(/\n/g, '<br>');
+        msgDiv.innerHTML = `<div class="bot-msg-header"><span>AI Mode</span></div><div class="bot-msg-body">${formatted}</div>`;
+      }
+
+      // Insert before typing indicator
+      aiMessages.insertBefore(msgDiv, aiTyping);
+      scrollToBottom();
+    }
+
+    async function sendChatMessage(message) {
+      if (!message || !message.trim()) return;
+      const cleanMsg = message.trim();
+
+      appendMessage(cleanMsg, true);
+      aiInput.value = '';
+
+      // Show typing indicator
+      aiTyping.classList.add('active');
+      scrollToBottom();
+
+      try {
+        const res = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: cleanMsg })
+        });
+        const data = await res.json();
+        aiTyping.classList.remove('active');
+
+        if (data.success && data.reply) {
+          appendMessage(data.reply, false);
+        } else {
+          appendMessage("Sorry, I could not process that question right now. Feel free to contact Maira directly at mairayounus90@gmail.com!", false);
+        }
+      } catch (err) {
+        aiTyping.classList.remove('active');
+        appendMessage("Maira Younus is a Full Stack Developer skilled in HTML5, CSS3, JavaScript, Node.js, and Express. Feel free to explore her live projects or contact her at mairayounus90@gmail.com!", false);
+      }
+    }
+
+    if (aiForm) {
+      aiForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        sendChatMessage(aiInput.value);
+      });
+    }
+
+    aiPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        const prompt = pill.getAttribute('data-prompt');
+        sendChatMessage(prompt);
+      });
+    });
   </script>
 </body>
+
 </html>

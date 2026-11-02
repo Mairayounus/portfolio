@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maira Younus | Full Stack Developer Resume</title>
+  <meta name="description" content="Resume of Maira Younus - Full Stack Developer">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: rgba(15, 23, 42, 0.95);
+      --border: rgba(255, 255, 255, 0.08);
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --primary: #00d2d3;
+      --primary-glow: rgba(0, 210, 211, 0.25);
+      --accent: #8b5cf6;
+      --white: #ffffff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 40px 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Ambient background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -120px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(0, 210, 211, 0.12) 0%, rgba(139, 92, 246, 0.08) 50%, transparent 70%);
+      filter: blur(80px);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .top-actions {
+      max-width: 880px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.88rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1px solid var(--border);
+    }
+
+    .btn-back {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+    }
+    .btn-back:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #00d2d3, #00a8a8);
+      color: #090d16;
+      font-weight: 700;
+      border: none;
+      box-shadow: 0 4px 20px var(--primary-glow);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(0, 210, 211, 0.4);
+    }
+
+    /* CV Paper Sheet */
+    .cv-sheet {
+      max-width: 880px;
+      width: 100%;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 48px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(16px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cv-sheet::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #00d2d3, #8b5cf6, #3b82f6);
+    }
+
+    /* Header */
+    .cv-header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 24px;
+      margin-bottom: 28px;
+      text-align: center;
+    }
+
+    .cv-name h1 {
+      font-size: 2.3rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .cv-role {
+      font-size: 1.15rem;
+      color: var(--primary);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+    }
+
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .contact-bar a {
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .contact-bar a:hover {
+      color: var(--primary);
+    }
+
+    .contact-separator {
+      color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Section Styling */
+    .cv-section {
+      margin-bottom: 26px;
+    }
+
+    .section-title {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 6px;
+    }
+
+    .summary-text {
+      font-size: 0.92rem;
+      color: #cbd5e1;
+      line-height: 1.7;
+    }
+
+    /* Skills list */
+    .skills-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .skill-row {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .skill-row strong {
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    /* Projects list */
+    .project-item {
+      margin-bottom: 18px;
+    }
+
+    .project-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .project-title {
+      font-size: 1rem;
+      color: var(--white);
+      font-weight: 700;
+    }
+
+    .project-tech {
+      font-size: 0.82rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--primary);
+    }
+
+    .bullet-points {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 4px;
+    }
+
+    .bullet-points li {
+      position: relative;
+      padding-left: 18px;
+      font-size: 0.88rem;
+      color: #94a3b8;
+      margin-bottom: 4px;
+      line-height: 1.5;
+    }
+
+    .bullet-points li::before {
+      content: '•';
+      position: absolute;
+      left: 4px;
+      color: var(--primary);
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+
+    .bullet-points a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+    .bullet-points a:hover {
+      text-decoration: underline;
+    }
+
+    /* Timeline & Internships */
+    .internship-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .internship-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border);
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+    }
+
+    .internship-card strong {
+      color: var(--white);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .internship-card span {
+      color: var(--primary);
+      font-size: 0.82rem;
+    }
+
+    /* Print styling */
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #0f172a !important;
+        padding: 0 !important;
+      }
+      body::before, .top-actions {
+        display: none !important;
+      }
+      .cv-sheet {
+        box-shadow: none !important;
+        border: none !important;
+        background: #ffffff !important;
+        padding: 0 !important;
+        color: #0f172a !important;
+      }
+      .cv-sheet::before { display: none !important; }
+      .cv-name h1 { color: #0f172a !important; }
+      .cv-role { color: #0284c7 !important; }
+      .section-title { color: #0284c7 !important; border-color: #cbd5e1 !important; }
+      .skill-row strong, .project-title, .internship-card strong { color: #0f172a !important; }
+      .contact-bar, .contact-bar a, .summary-text, .skill-row, .bullet-points li {
+        color: #334155 !important;
+      }
+      .internship-card {
+        background: #f8fafc !important;
+        border: 1px solid #e2e8f0 !important;
+      }
+      .project-tech, .internship-card span, .bullet-points li::before {
+        color: #0284c7 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-actions">
+    <a href="index.html" class="btn btn-back">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+      Back to Portfolio
+    </a>
+    <button onclick="window.print()" class="btn btn-primary">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+      Print / Download CV
+    </button>
+  </div>
+
+  <main class="cv-sheet">
+    <!-- Header -->
+    <header class="cv-header">
+      <div class="cv-name">
+        <h1>MAIRA YOUNUS</h1>
+      </div>
+      <div class="cv-role">Full Stack Developer</div>
+      <div class="contact-bar">
+        <span>Hyderabad, Pakistan</span>
+        <span class="contact-separator">|</span>
+        <span>03144351035</span>
+        <span class="contact-separator">|</span>
+        <a href="mailto:mairayounus90@gmail.com">mairayounus90@gmail.com</a>
+        <span class="contact-separator">|</span>
+        <a href="https://linkedin.com/in/maira-younus-544a1438a" target="_blank">LinkedIn: linkedin.com/in/maira-younus-544a1438a</a>
+        <span class="contact-separator">|</span>
+        <a href="https://github.com/Mairayounus" target="_blank">GitHub: github.com/Mairayounus</a>
+      </div>
+    </header>
+
+    <!-- Professional Summary -->
+    <section class="cv-section">
+      <h2 class="section-title">Professional Summary</h2>
+      <p class="summary-text">
+        Full Stack Developer skilled in building complete web applications, from responsive frontend interfaces in HTML5, CSS3, and JavaScript to backend APIs and databases with Node.js, Express.js, and MongoDB/SQL. Completed five remote web development internships and built API-driven projects including authentication and CRUD functionality. Seeking a Full Stack Developer role where I can contribute clean, maintainable code and grow with a development team.
+      </p>
+    </section>
+
+    <!-- Technical Skills -->
+    <section class="cv-section">
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="skills-list">
+        <div class="skill-row">
+          • <strong>Frontend:</strong> HTML5, CSS3, JavaScript (ES6+), Responsive Design, DOM Manipulation
+        </div>
+        <div class="skill-row">
+          • <strong>Backend:</strong> Node.js, Express.js, RESTful API Development, Authentication Basics
+        </div>
+        <div class="skill-row">
+          • <strong>Database:</strong> MongoDB / SQL, CRUD Operations, Data Modeling Basics
+        </div>
+        <div class="skill-row">
+          • <strong>Web Concepts:</strong> API Integration, Async JavaScript (Fetch, Promises), Form Handling, Client-Server Communication
+        </div>
+        <div class="skill-row">
+          • <strong>Tools:</strong> Visual Studio Code, Git and GitHub, Postman, Chrome DevTools
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="cv-section">
+      <h2 class="section-title">Projects</h2>
+      
+      <div class="project-item">
+        <div class="project-header-row">
+          <span class="project-title">Full Stack Web Application</span>
+          <span class="project-tech">JavaScript, Node.js, Express.js, MongoDB/SQL</span>
+        </div>
+        <ul class="bullet-points">
+          <li>Developed a complete web application with a JavaScript frontend connected to a REST API backend and database</li>
+          <li>Implemented user authentication and full CRUD functionality</li>
+          <li>Source code: <a href="https://github.com/Mairayounus" target="_blank">github.com/Mairayounus</a></li>
+        </ul>
+      </div>
+
+      <div class="project-item">
+        <div class="project-header-row">
+          <span class="project-title">Weather API App</span>
+          <span class="project-tech">JavaScript, Node.js, Express.js, REST API</span>
+        </div>
+        <ul class="bullet-points">
+          <li>Built a Node.js/Express backend that calls a third-party weather API and serves the data to the frontend</li>
+          <li>Handled asynchronous requests, loading states, and error responses for a smooth user experience</li>
+        </ul>
+      </div>
+
+      <div class="project-item">
+        <div class="project-header-row">
+          <span class="project-title">Registration, Contact and Login Forms</span>
+          <span class="project-tech">HTML, CSS, JavaScript, Node.js, Express.js</span>
+        </div>
+        <ul class="bullet-points">
+          <li>Built responsive forms with client-side validation, connected to a backend API for registration, login, and contact submissions</li>
+          <li>Applied server-side validation, clear error messages, and mobile-friendly layouts</li>
+        </ul>
+      </div>
+
+      <div class="project-item">
+        <div class="project-header-row">
+          <span class="project-title">Personal Portfolio Website</span>
+          <span class="project-tech">HTML, CSS, JavaScript, Node.js, Express.js</span>
+        </div>
+        <ul class="bullet-points">
+          <li>Designed and developed a fully responsive portfolio showcasing projects and skills, with a backend-powered contact form</li>
+          <li>Published the code on GitHub with version control</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Internship Experience -->
+    <section class="cv-section">
+      <h2 class="section-title">Internship Experience</h2>
+      <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 10px;">Remote Internship Programs:</p>
+      <div class="internship-grid">
+        <div class="internship-card">
+          <strong>CodeAlpha</strong>
+          <span>Web Development</span>
+        </div>
+        <div class="internship-card">
+          <strong>DevelopersHub Corporation</strong>
+          <span>Front-End Development</span>
+        </div>
+        <div class="internship-card">
+          <strong>ProStackHub</strong>
+          <span>Frontend Development</span>
+        </div>
+        <div class="internship-card">
+          <strong>Codomax Digital Solutions</strong>
+          <span>Web Development</span>
+        </div>
+        <div class="internship-card" style="grid-column: span 2;">
+          <strong>Qwetrum Technologies</strong>
+          <span>Online Internship</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="cv-section">
+      <h2 class="section-title">Education</h2>
+      <div style="font-size: 0.92rem; color: #cbd5e1;">
+        <strong>B.Sc. (Pre-Engineering)</strong> &mdash; University of Sindh | 2016&ndash;2019
+      </div>
+    </section>
+
+    <!-- Certificates -->
+    <section class="cv-section">
+      <h2 class="section-title">Certificates</h2>
+      <ul class="bullet-points">
+        <li><strong>Web Developer Certificate</strong> &mdash; Mehran University</li>
+      </ul>
+    </section>
+
+    <!-- Soft Skills -->
+    <section class="cv-section">
+      <h2 class="section-title">Soft Skills</h2>
+      <div style="font-size: 0.9rem; color: var(--text-muted); display: flex; flex-wrap: wrap; gap: 8px;">
+        <span style="background: rgba(0, 210, 211, 0.08); border: 1px solid rgba(0, 210, 211, 0.2); padding: 4px 10px; border-radius: 6px; color: var(--text);">Problem-Solving</span>
+        <span style="background: rgba(0, 210, 211, 0.08); border: 1px solid rgba(0, 210, 211, 0.2); padding: 4px 10px; border-radius: 6px; color: var(--text);">Communication</span>
+        <span style="background: rgba(0, 210, 211, 0.08); border: 1px solid rgba(0, 210, 211, 0.2); padding: 4px 10px; border-radius: 6px; color: var(--text);">Teamwork</span>
+        <span style="background: rgba(0, 210, 211, 0.08); border: 1px solid rgba(0, 210, 211, 0.2); padding: 4px 10px; border-radius: 6px; color: var(--text);">Adaptability</span>
+        <span style="background: rgba(0, 210, 211, 0.08); border: 1px solid rgba(0, 210, 211, 0.2); padding: 4px 10px; border-radius: 6px; color: var(--text);">Time Management</span>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>

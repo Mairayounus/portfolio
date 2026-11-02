@@ -1,0 +1,493 @@
+require('dotenv').config();
+const express = require('express');
+const cors = require('cors');
+const path = require('path');
+const fs = require('fs');
+const { SMTPClient } = require('emailjs');
+const nodemailer = require('nodemailer');
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+// Middleware
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Serve static frontend files
+app.use(express.static(path.join(__dirname)));
+
+// Ensure data folder and messages.json exist
+const dataDir = path.join(__dirname, 'data');
+const messagesFile = path.join(dataDir, 'messages.json');
+
+if (!fs.existsSync(dataDir)) {
+  fs.mkdirSync(dataDir, { recursive: true });
+}
+
+if (!fs.existsSync(messagesFile)) {
+  fs.writeFileSync(messagesFile, JSON.stringify([], null, 2), 'utf-8');
+}
+
+// User's verified projects database with direct live links
+const projects = [
+  {
+    id: 'web-template',
+    title: 'Modern Web Template',
+    description: 'A clean, modern, and high-performance responsive web template built with HTML5 & modern CSS. Features modular sections, elegant hero layout, and mobile-first architecture.',
+    category: 'web-apps',
+    featured: true,
+    tags: ['HTML5', 'CSS3', 'Responsive Design', 'Flexbox/Grid'],
+    githubUrl: 'https://github.com/Mairayounus/WEB-template',
+    liveUrl: 'https://mairayounus.github.io/WEB-template/',
+    icon: 'layout'
+  },
+  {
+    id: 'rival-project',
+    title: 'Rival Security Dashboard',
+    description: 'Centralized security dashboard built to monitor real-time system logs, manage user roles, and track metrics with interactive charts and responsive UI.',
+    category: 'web-apps',
+    featured: true,
+    tags: ['HTML5', 'CSS3', 'JavaScript', 'REST API'],
+    githubUrl: 'https://github.com/Mairayounus/Rival-project',
+    liveUrl: 'https://mairayounus.github.io/Rival-project/',
+    icon: 'shield'
+  },
+  {
+    id: 'bootstrap-project',
+    title: 'Bootstrap Responsive Portal',
+    description: 'Modern, fully responsive corporate landing website developed with Bootstrap framework, featuring dynamic navbar, interactive cards, pricing tables, and sleek footer.',
+    category: 'ui',
+    featured: true,
+    tags: ['Bootstrap 5', 'HTML5', 'CSS3', 'Mobile-First'],
+    githubUrl: 'https://github.com/Mairayounus/bootstrap-Project',
+    liveUrl: 'https://mairayounus.github.io/bootstrap-Project/',
+    icon: 'layers'
+  },
+  {
+    id: 'prostackhub-task2',
+    title: 'ProStackHub Internship Task 2',
+    description: 'Real-world client web application developed during web development internship at ProStack Hub. Focuses on robust JavaScript logic, clean DOM updates, and fluid layouts.',
+    category: 'web-apps',
+    featured: true,
+    tags: ['Frontend', 'JavaScript', 'Git/GitHub', 'UI/UX'],
+    githubUrl: 'https://github.com/Mairayounus/prostackhub-task2',
+    liveUrl: 'https://mairayounus.github.io/prostackhub-task2/',
+    icon: 'briefcase'
+  },
+  {
+    id: 'prostackhub-task1',
+    title: 'ProStackHub Internship Task 1',
+    description: 'Comprehensive web development project built for ProStackHub internship program, demonstrating semantic markup, modern CSS styling, and component structure.',
+    category: 'web-apps',
+    featured: true,
+    tags: ['HTML5', 'CSS3', 'Responsive Design', 'Git Workflow'],
+    githubUrl: 'https://github.com/Mairayounus/prostackhub-task1',
+    liveUrl: 'https://mairayounus.github.io/prostackhub-task1/',
+    icon: 'code'
+  },
+  {
+    id: 'nexus-security',
+    title: 'Nexus Security Platform',
+    description: 'A modern web security application designed to protect user credentials, handle secure authentication flows, and manage safe access across platforms.',
+    category: 'web-apps',
+    featured: true,
+    tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Auth'],
+    githubUrl: 'https://github.com/Mairayounus/Nexus-security',
+    liveUrl: 'https://nexus-security-one.vercel.app',
+    icon: 'lock'
+  },
+  {
+    id: 'weather-api',
+    title: 'Weather Forecast API App',
+    description: 'Real-time Weather API application fetching live meteorological data for cities globally. Displays temperature, humidity, wind speed, and dynamic forecast cards.',
+    category: 'api',
+    featured: false,
+    tags: ['JavaScript (ES6+)', 'OpenWeather API', 'Async/Await', 'CSS3'],
+    githubUrl: 'https://github.com/Mairayounus/api-weather',
+    liveUrl: 'https://mairayounus.github.io/api-weather/',
+    icon: 'cloud'
+  },
+  {
+    id: 'music-player',
+    title: 'Interactive Music Player',
+    description: 'Interactive audio player web application with track scrubbing, progress animation, volume control, track playlist navigation, and modern dark player skin.',
+    category: 'api',
+    featured: false,
+    tags: ['HTML5 Audio', 'JavaScript', 'CSS Animations'],
+    githubUrl: 'https://github.com/Mairayounus/codealpha_musicplayer',
+    liveUrl: 'https://mairayounus.github.io/codealpha_musicplayer/',
+    icon: 'music'
+  },
+  {
+    id: 'todo-list',
+    title: 'Smart Task & To-Do List',
+    description: 'Responsive productivity manager with persistent browser storage, interactive status toggling, task filtering, and smooth deletion animations.',
+    category: 'api',
+    featured: false,
+    tags: ['JavaScript', 'LocalStorage', 'CRUD', 'DOM Manipulation'],
+    githubUrl: 'https://github.com/Mairayounus/todo.list',
+    liveUrl: 'https://mairayounus.github.io/todo.list/',
+    icon: 'check-circle'
+  }
+];
+
+// Helper to read messages
+function readMessages() {
+  try {
+    const raw = fs.readFileSync(messagesFile, 'utf-8');
+    return JSON.parse(raw || '[]');
+  } catch (err) {
+    console.error('Error reading messages file:', err);
+    return [];
+  }
+}
+
+// Helper to write messages
+function writeMessages(messages) {
+  try {
+    fs.writeFileSync(messagesFile, JSON.stringify(messages, null, 2), 'utf-8');
+    return true;
+  } catch (err) {
+    console.error('Error saving messages file:', err);
+    return false;
+  }
+}
+
+// --- API ROUTES ---
+
+// Health & status check
+app.get('/api/health', (req, res) => {
+  res.json({
+    status: 'ok',
+    uptime: process.uptime(),
+    timestamp: new Date().toISOString(),
+    owner: 'Maira Younus',
+    title: 'Full Stack Developer'
+  });
+});
+
+// Get all projects
+app.get('/api/projects', (req, res) => {
+  const { category } = req.query;
+  if (category && category !== 'all') {
+    const filtered = projects.filter(p => p.category === category);
+    return res.json({ success: true, count: filtered.length, projects: filtered });
+  }
+  res.json({ success: true, count: projects.length, projects });
+});
+
+// HTML escaping helper to prevent XSS in email templates
+function escapeHtml(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+// Handle contact form submission and email delivery
+app.post('/api/contact', async (req, res) => {
+  const { name, email, subject, message } = req.body;
+
+  // 1. Validation
+  if (!name || typeof name !== 'string' || !name.trim() || name.trim().length < 2) {
+    return res.status(400).json({ success: false, error: 'Please enter your name (minimum 2 characters).' });
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!email || typeof email !== 'string' || !emailRegex.test(email.trim())) {
+    return res.status(400).json({ success: false, error: 'Please enter a valid email address.' });
+  }
+
+  if (!message || typeof message !== 'string' || !message.trim() || message.trim().length < 5) {
+    return res.status(400).json({ success: false, error: 'Please enter a message (minimum 5 characters).' });
+  }
+
+  const cleanSubject = (subject && typeof subject === 'string' && subject.trim().length > 0)
+    ? subject.trim()
+    : 'New Portfolio Contact Inquiry';
+
+  const newMessage = {
+    id: 'msg_' + Date.now() + '_' + Math.random().toString(36).substring(2, 8),
+    name: name.trim(),
+    email: email.trim(),
+    subject: cleanSubject,
+    message: message.trim(),
+    createdAt: new Date().toISOString(),
+    formattedDate: new Date().toLocaleString()
+  };
+
+  // 2. Persist to local JSON database so inquiries are never lost
+  const messages = readMessages();
+  messages.unshift(newMessage);
+  writeMessages(messages);
+
+  console.log(`[Contact Form] New message from ${newMessage.name} (${newMessage.email}): "${newMessage.subject}"`);
+
+  // 3. Send email if credentials are configured
+  const emailUser = process.env.EMAIL_USER;
+  const emailPassword = process.env.EMAIL_PASSWORD;
+  const emailTo = process.env.EMAIL_TO || emailUser;
+  const emailHost = process.env.EMAIL_HOST || 'smtp.gmail.com';
+  const emailPort = Number(process.env.EMAIL_PORT) || 465;
+  const emailSsl = process.env.EMAIL_SSL !== 'false';
+
+  const isConfigured = Boolean(emailUser && emailPassword && emailPassword.trim().length > 0);
+
+  if (isConfigured) {
+    try {
+      const textBody = `New Contact Form Submission from Portfolio:
+ 
+Name: ${newMessage.name}
+Email: ${newMessage.email}
+Subject: ${newMessage.subject}
+Date: ${newMessage.formattedDate}
+ 
+Message:
+${newMessage.message}
+ 
+---
+You can reply directly to this email to contact ${newMessage.name} at ${newMessage.email}.`;
+
+      const htmlBody = `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #0b0f19; margin: 0; padding: 24px; color: #e2e8f0; }
+    .card { max-width: 600px; margin: 0 auto; background: #161f30; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); }
+    .header { background: linear-gradient(135deg, #00d2d3, #0284c7); color: #0b0f19; padding: 24px; font-weight: 700; }
+    .header h2 { margin: 0; font-size: 22px; color: #070a12; }
+    .header p { margin: 4px 0 0; font-size: 13px; color: #0f172a; font-weight: 500; }
+    .content { padding: 24px; }
+    .field { margin-bottom: 16px; }
+    .field-label { font-size: 11px; text-transform: uppercase; font-weight: 700; letter-spacing: 0.08em; color: #38bdf8; margin-bottom: 4px; }
+    .field-value { font-size: 15px; color: #f8fafc; font-weight: 500; }
+    .field-value a { color: #38bdf8; text-decoration: none; }
+    .message-box { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 16px; font-size: 14px; line-height: 1.6; color: #cbd5e1; white-space: pre-wrap; margin-top: 6px; }
+    .footer { padding: 14px 24px; background: rgba(0,0,0,0.2); border-top: 1px solid rgba(255,255,255,0.06); font-size: 12px; color: #94a3b8; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <h2>📬 New Portfolio Inquiry</h2>
+      <p>Received via Maira Younus Portfolio Contact Form</p>
+    </div>
+    <div class="content">
+      <div class="field">
+        <div class="field-label">Sender Name</div>
+        <div class="field-value">${escapeHtml(newMessage.name)}</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Sender Email</div>
+        <div class="field-value"><a href="mailto:${escapeHtml(newMessage.email)}" style="color: #38bdf8;">${escapeHtml(newMessage.email)}</a></div>
+      </div>
+      <div class="field">
+        <div class="field-label">Subject</div>
+        <div class="field-value">${escapeHtml(newMessage.subject)}</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Message</div>
+        <div class="message-box">${escapeHtml(newMessage.message)}</div>
+      </div>
+    </div>
+    <div class="footer">
+      Sent on ${newMessage.formattedDate} &bull; Maira Younus Full Stack Portfolio
+    </div>
+  </div>
+</body>
+</html>`;
+
+      let emailSent = false;
+      let emailError = null;
+
+      // 1. Try sending with Nodemailer (best support for Gmail & App Passwords)
+      try {
+        const isGmail = emailHost.includes('gmail') || emailUser.includes('@gmail.com');
+        const cleanPassword = emailPassword.replace(/\s+/g, '');
+
+        const transporterConfig = isGmail
+          ? {
+            service: 'gmail',
+            auth: {
+              user: emailUser,
+              pass: cleanPassword
+            }
+          }
+          : {
+            host: emailHost,
+            port: emailPort,
+            secure: emailSsl,
+            auth: {
+              user: emailUser,
+              pass: cleanPassword
+            }
+          };
+
+        const transporter = nodemailer.createTransport(transporterConfig);
+        await transporter.sendMail({
+          from: `"Portfolio Contact" <${emailUser}>`,
+          to: emailTo,
+          replyTo: `"${newMessage.name}" <${newMessage.email}>`,
+          subject: `[Portfolio Contact] ${newMessage.subject} - from ${newMessage.name}`,
+          text: textBody,
+          html: htmlBody
+        });
+
+        emailSent = true;
+        console.log(`[Nodemailer] Email successfully sent to ${emailTo}`);
+      } catch (nmErr) {
+        console.warn(`[Nodemailer Warning] ${nmErr.message}, attempting emailjs fallback...`);
+        emailError = nmErr.message;
+
+        // 2. Fallback to emailjs package
+        try {
+          const client = new SMTPClient({
+            user: emailUser,
+            password: emailPassword.replace(/\s+/g, ''),
+            host: emailHost,
+            port: emailPort,
+            ssl: emailSsl,
+            timeout: 15000
+          });
+
+          await client.sendAsync({
+            text: textBody,
+            from: `Portfolio Contact <${emailUser}>`,
+            to: emailTo,
+            subject: `[Portfolio Contact] ${newMessage.subject} - from ${newMessage.name}`,
+            'reply-to': `${newMessage.name} <${newMessage.email}>`,
+            attachment: [
+              { data: htmlBody, alternative: true }
+            ]
+          });
+
+          emailSent = true;
+          console.log(`[EmailJS] Email successfully dispatched to ${emailTo}`);
+        } catch (ejsErr) {
+          console.error('[EmailJS Error]', ejsErr.message || ejsErr);
+          emailError = ejsErr.message;
+        }
+      }
+
+      if (emailSent) {
+        return res.status(200).json({
+          success: true,
+          message: 'Thank you! Your message has been sent directly to my email and saved successfully.',
+          data: { id: newMessage.id, emailSent: true }
+        });
+      } else {
+        return res.status(200).json({
+          success: true,
+          message: 'Thank you! Your message has been saved in our database. (Notice: Please verify your Gmail 16-character App Password in .env)',
+          warning: emailError || 'SMTP delivery error',
+          data: { id: newMessage.id, emailSent: false }
+        });
+      }
+    } catch (err) {
+      console.error('[Contact Error]', err.message || err);
+      return res.status(200).json({
+        success: true,
+        message: 'Your message has been saved in our database.',
+        data: { id: newMessage.id, emailSent: false }
+      });
+    }
+  }
+
+  // Fallback when EMAIL_PASSWORD is not configured yet
+  console.log('[Notice] Message stored in database. Configure EMAIL_USER and EMAIL_PASSWORD in .env for live inbox delivery.');
+  return res.status(200).json({
+    success: true,
+    message: 'Thank you! Your message has been received and saved. (Note: Configure EMAIL_PASSWORD in .env to deliver directly to your Gmail inbox).',
+    data: { id: newMessage.id, emailSent: false }
+  });
+});
+
+// AI Portfolio Chatbot API Endpoint
+app.post('/api/chat', (req, res) => {
+  const { message } = req.body;
+  if (!message || typeof message !== 'string') {
+    return res.status(400).json({ success: false, reply: "Hello! How can I help you today?" });
+  }
+
+  const query = message.toLowerCase().trim();
+  let reply = "";
+
+  if (query.includes('project') || query.includes('work') || query.includes('portfolio') || query.includes('built')) {
+    reply = "Maira has built several great projects! Highlights include:\n• **Rival Project Dashboard**: Real-time security logs & user role monitoring dashboard.\n• **WEB Template**: Clean, modern responsive web layout.\n• **Bootstrap Responsive Portal**: Full-featured mobile-first portal.\n• **Nexus Security**: Modern auth & web security app.\n• **Weather API App**: Real-time weather forecasting.\n• **Music Player & To-Do List**: Interactive client-side apps.\n\nYou can click on any card in the Projects section to open the live links directly!";
+  } else if (query.includes('skill') || query.includes('tech') || query.includes('stack') || query.includes('know')) {
+    reply = "Maira is a Full Stack Developer proficient in:\n• **Frontend**: HTML5, CSS3, JavaScript (ES6+), Bootstrap 5, Tailwind CSS, Responsive Design, DOM Manipulation, GSAP Animations.\n• **Backend**: Node.js, Express.js, RESTful APIs, CRUD operations, Authentication.\n• **Databases**: MongoDB & SQL fundamentals.\n• **Tools**: Git, GitHub, VS Code, Postman, Chrome DevTools.";
+  } else if (query.includes('resume') || query.includes('cv') || query.includes('download')) {
+    reply = "You can view and download Maira's complete CV by clicking the **'Resume'** button in the hero section or visiting /resume.html. It includes an instant Print/PDF download feature!";
+  } else if (query.includes('internship') || query.includes('experience') || query.includes('job')) {
+    reply = "Maira has completed 5 remote web development internships:\n1. **ProStackHub** - Frontend Development\n2. **CodeAlpha** - Web Development\n3. **DevelopersHub Corporation** - Front-End Development\n4. **Codomax Digital Solutions** - Web Development\n5. **Qwetrum Technologies** - Online Internship\n\nShe has hands-on experience building real-world client UI components and delivering modular code.";
+  } else if (query.includes('education') || query.includes('study') || query.includes('degree') || query.includes('certificate')) {
+    reply = "Maira holds a **B.Sc. (Pre-Engineering)** from the University of Sindh (2016–2019) and a professional **Web Developer Certificate** from Mehran University. She also completed Full Stack training with Saylani Mass IT Training (SMIT).";
+  } else if (query.includes('service') || query.includes('offer') || query.includes('marketing') || query.includes('graphic') || query.includes('logo') || query.includes('design')) {
+    reply = "Maira offers professional services including:\n• **Web & Full Stack Development**: Custom, responsive websites & robust REST APIs.\n• **Graphic Designing**: Social media creatives, marketing flyers, posters & ad visuals.\n• **Logo Design & Branding**: Unique vector logos, brand identities & typography packages.\n• **Digital Marketing**: Campaign strategies, SEO basics & online brand growth.\n\nFeel free to explore the Services section or contact her directly!";
+  } else if (query.includes('contact') || query.includes('hire') || query.includes('email') || query.includes('phone') || query.includes('call') || query.includes('reach')) {
+    reply = "You can reach Maira directly through:\n• **Email**: mairayounus90@gmail.com\n• **Phone / WhatsApp**: 03144351035\n• **LinkedIn**: linkedin.com/in/maira-younus-544a1438a\n• **GitHub**: github.com/Mairayounus\n\nOr simply fill out the Contact form below!";
+  } else if (query.includes('hello') || query.includes('hi') || query.includes('hey') || query.includes('salam')) {
+    reply = "Hello there! 👋 I am Maira's AI Portfolio Assistant. How can I assist you today? Feel free to ask about her projects, skills, resume, experience, or how to contact her!";
+  } else {
+    reply = "Thank you for asking! Maira Younus is a passionate Full Stack Developer specializing in responsive frontend UI, Node.js/Express backend APIs, and modern web applications. You can explore her live projects, view her resume, or reach out to her at mairayounus90@gmail.com!";
+  }
+
+  return res.json({ success: true, reply });
+});
+
+// Get messages (for portfolio owner / dashboard)
+app.get('/api/contact/messages', (req, res) => {
+  const messages = readMessages();
+  res.json({
+    success: true,
+    total: messages.length,
+    messages
+  });
+});
+
+// Resume metadata API
+app.get('/api/resume', (req, res) => {
+  res.json({
+    name: 'Maira Younus',
+    title: 'Full Stack Developer',
+    email: 'mairayounus90@gmail.com',
+    phone: '03144351035',
+    location: 'Hyderabad, Pakistan',
+    linkedIn: 'https://linkedin.com/in/maira-younus-544a1438a',
+    github: 'https://github.com/Mairayounus',
+    resumeUrl: '/resume.html',
+    internships: [
+      'CodeAlpha — Web Development',
+      'DevelopersHub Corporation — Front-End Development',
+      'ProStackHub — Frontend Development',
+      'Codomax Digital Solutions — Web Development',
+      'Qwetrum Technologies — Online Internship'
+    ],
+    education: 'B.Sc. (Pre-Engineering) — University of Sindh | 2016–2019',
+    certificate: 'Web Developer Certificate — Mehran University'
+  });
+});
+
+// Express fallback middleware (Express 5 compatible)
+app.use((req, res, next) => {
+  if (req.method === 'GET' && !req.path.startsWith('/api')) {
+    return res.sendFile(path.join(__dirname, 'index.html'));
+  }
+  next();
+});
+
+// Start server
+app.listen(PORT, () => {
+  console.log(`=================================================`);
+  console.log(`🚀 Portfolio backend server running at http://localhost:${PORT}`);
+  console.log(`📡 Contact API: POST http://localhost:${PORT}/api/contact`);
+  console.log(`📂 Projects API: GET http://localhost:${PORT}/api/projects`);
+  console.log(`📄 Resume Page: http://localhost:${PORT}/resume.html`);
+  console.log(`=================================================`);
+});
