@@ -15,3 +15,11 @@ yarn-error.log*
 # OS generated files
 .DS_Store
 Thumbs.db
+
+# Backup & test files (do not expose)
+server.js.backup
+test-email.js
+
+# Local data (messages stored locally, not in git)
+data/messages.json
+

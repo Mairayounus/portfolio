@@ -709,10 +709,11 @@ section {
   display: none;
 }
 
-/* Services Grid: 3 columns on desktop, equal-size cards */
+/* Services Grid: responsive grid layout — no horizontal scrolling */
+.services-grid,
 .services-scroller {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 24px;
   overflow: visible;
   padding: 12px 0 0;
@@ -1402,6 +1403,33 @@ section {
   margin: 0;
 }
 
+/* Footer brand name: ferozi/cyan color */
+.footer-brand-name {
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 12px rgba(0, 210, 211, 0.4);
+}
+
+/* Footer brand title: white */
+.footer-brand-title {
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+/* Footer Resume link */
+.footer-resume-link {
+  color: var(--text-soft);
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+
+.footer-resume-link:hover {
+  color: var(--primary);
+}
+
 .footer-subcopy {
   font-size: 0.78rem;
   color: rgba(255, 255, 255, 0.42);
@@ -1537,6 +1565,7 @@ section {
 .experience-grid>*,
 .skills-grid>*,
 .projects-grid>*,
+.services-grid>*,
 .services-scroller>* {
   min-width: 0;
 }
@@ -1560,6 +1589,7 @@ section {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .services-grid,
   .services-scroller {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1730,6 +1760,7 @@ section {
 
 /* Services: single column on phones */
 @media (max-width: 640px) {
+  .services-grid,
   .services-scroller {
     grid-template-columns: 1fr;
   }
