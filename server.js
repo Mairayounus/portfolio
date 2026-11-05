@@ -17,16 +17,21 @@ app.use(express.urlencoded({ extended: true }));
 // Serve static frontend files
 app.use(express.static(path.join(__dirname)));
 
-// Ensure data folder and messages.json exist
-const dataDir = path.join(__dirname, 'data');
+// Vercel serverless: filesystem is read-only except /tmp
+const IS_VERCEL = process.env.VERCEL === '1';
+const dataDir = IS_VERCEL ? '/tmp/data' : path.join(__dirname, 'data');
 const messagesFile = path.join(dataDir, 'messages.json');
 
-if (!fs.existsSync(dataDir)) {
-  fs.mkdirSync(dataDir, { recursive: true });
-}
-
-if (!fs.existsSync(messagesFile)) {
-  fs.writeFileSync(messagesFile, JSON.stringify([], null, 2), 'utf-8');
+// Ensure data folder and messages.json exist (safe for serverless)
+try {
+  if (!fs.existsSync(dataDir)) {
+    fs.mkdirSync(dataDir, { recursive: true });
+  }
+  if (!fs.existsSync(messagesFile)) {
+    fs.writeFileSync(messagesFile, JSON.stringify([], null, 2), 'utf-8');
+  }
+} catch (e) {
+  console.warn('[Init] Could not create data directory:', e.message);
 }
 
 // User's verified projects database with direct live links
@@ -482,12 +487,17 @@ app.use((req, res, next) => {
   next();
 });
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`=================================================`);
-  console.log(`🚀 Portfolio backend server running at http://localhost:${PORT}`);
-  console.log(`📡 Contact API: POST http://localhost:${PORT}/api/contact`);
-  console.log(`📂 Projects API: GET http://localhost:${PORT}/api/projects`);
-  console.log(`📄 Resume Page: http://localhost:${PORT}/resume.html`);
-  console.log(`=================================================`);
-});
+// Start server locally (not on Vercel serverless)
+if (process.env.VERCEL !== '1') {
+  app.listen(PORT, () => {
+    console.log(`=================================================`);
+    console.log(`🚀 Portfolio backend server running at http://localhost:${PORT}`);
+    console.log(`📡 Contact API: POST http://localhost:${PORT}/api/contact`);
+    console.log(`📂 Projects API: GET http://localhost:${PORT}/api/projects`);
+    console.log(`📄 Resume Page: http://localhost:${PORT}/resume.html`);
+    console.log(`=================================================`);
+  });
+}
+
+// Export for Vercel serverless
+module.exports = app;
